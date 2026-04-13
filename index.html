@@ -1,0 +1,2359 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#1A1A1A">
+<title>Coach Holistique RunOnTheWildSide — Run free. Run wild.</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--cuivre:#C9723E;--cuivre-clair:#E08C5A;--blanc-casse:#F5F5F5;--gris-roche:#1A1A1A;--noir-ardoise:#000000;--cuivre-dark:#A85C2E;--cuivre-glow:rgba(201,114,62,.15);--cuivre-glow2:rgba(201,114,62,.08);--border-subtle:rgba(201,114,62,.2);--text-muted:#888;--success:#4CAF50;--danger:#e74c3c}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Montserrat',sans-serif;background:var(--noir-ardoise);color:var(--blanc-casse);min-height:100vh;overflow-x:hidden;-webkit-text-size-adjust:100%;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+.app-header{background:linear-gradient(135deg,var(--gris-roche),#0d0d0d);border-bottom:2px solid var(--cuivre);padding:14px 18px;padding-top:max(14px,env(safe-area-inset-top));display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.logo-area{display:flex;align-items:center;gap:12px}
+.logo-svg{width:42px;height:42px}
+.brand-text h1{font-family:'Oswald',sans-serif;font-weight:700;font-size:1.2rem;letter-spacing:2px;text-transform:uppercase;line-height:1.1}
+.brand-text .tagline{font-family:'Oswald',sans-serif;font-weight:400;font-size:.62rem;letter-spacing:3px;text-transform:uppercase;color:var(--cuivre)}
+.header-sub{font-size:.68rem;color:var(--text-muted);letter-spacing:1px}
+.tab-nav{display:flex;background:var(--gris-roche);border-bottom:1px solid var(--border-subtle);overflow-x:auto;-webkit-overflow-scrolling:touch}
+.tab-btn{flex:1;min-width:70px;padding:10px 6px;background:0 0;border:none;color:var(--text-muted);font-family:'Oswald',sans-serif;font-size:.65rem;font-weight:500;letter-spacing:.8px;text-transform:uppercase;cursor:pointer;transition:.3s;position:relative;white-space:nowrap}
+.tab-btn::after{content:'';position:absolute;bottom:0;left:50%;width:0;height:2px;background:var(--cuivre);transition:.3s;transform:translateX(-50%)}
+.tab-btn:hover{color:var(--cuivre-clair)}
+.tab-btn.active{color:var(--cuivre)}
+.tab-btn.active::after{width:55%}
+.tab-icon{display:block;font-size:1rem;margin-bottom:2px}
+.tab-content{display:none;padding:20px;max-width:920px;margin:0 auto;animation:fadeIn .4s ease}
+.tab-content.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+.section-title{font-family:'Oswald',sans-serif;font-weight:700;font-size:1.3rem;color:var(--cuivre);text-transform:uppercase;letter-spacing:2px;margin-bottom:5px}
+.section-desc{font-size:.8rem;color:var(--text-muted);margin-bottom:20px;line-height:1.5}
+.sub-title{font-family:'Oswald',sans-serif;color:var(--cuivre);font-size:.95rem;letter-spacing:1px;margin:22px 0 10px;text-transform:uppercase}
+.form-group{margin-bottom:16px}
+.form-group label{display:block;font-family:'Oswald',sans-serif;font-weight:500;font-size:.75rem;letter-spacing:1.2px;text-transform:uppercase;color:var(--cuivre-clair);margin-bottom:6px}
+.opt{font-family:'Montserrat',sans-serif;font-weight:300;font-size:.65rem;color:var(--text-muted);text-transform:none;letter-spacing:0;margin-left:5px}
+input[type="text"],input[type="number"],input[type="date"],select,textarea{width:100%;padding:10px 12px;background:rgba(255,255,255,.05);border:1px solid var(--border-subtle);border-radius:5px;color:var(--blanc-casse);font-family:'Montserrat',sans-serif;font-size:.85rem;transition:.3s;outline:0}
+input:focus,select:focus,textarea:focus{border-color:var(--cuivre);box-shadow:0 0 0 3px var(--cuivre-glow)}
+select{cursor:pointer;appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath fill='%23C9723E' d='M6 8L0 0h12z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;padding-right:36px}
+select option{background:var(--gris-roche);color:var(--blanc-casse)}
+textarea{resize:vertical;min-height:60px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.form-row-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+@media(max-width:600px){.form-row,.form-row-3{grid-template-columns:1fr}.form-row[style*="grid-template-columns"]{grid-template-columns:1fr auto!important}}
+.checkbox-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:7px}
+.checkbox-item{display:flex;align-items:center;gap:8px;padding:8px 10px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:5px;cursor:pointer;transition:.2s}
+.checkbox-item:hover{border-color:var(--border-subtle);background:var(--cuivre-glow2)}
+.checkbox-item input[type="checkbox"]{accent-color:var(--cuivre);width:14px;height:14px;cursor:pointer}
+.checkbox-item span{font-size:.8rem}
+.radio-grid{display:grid;gap:8px}
+.radio-item{display:flex;align-items:flex-start;gap:10px;padding:12px 14px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:7px;cursor:pointer;transition:.3s}
+.radio-item:hover{border-color:var(--border-subtle);background:var(--cuivre-glow2)}
+.radio-item.selected{border-color:var(--cuivre);background:var(--cuivre-glow)}
+.radio-item input[type="radio"]{accent-color:var(--cuivre);width:14px;height:14px;margin-top:2px;cursor:pointer}
+.radio-info{flex:1}
+.radio-info .radio-label{font-family:'Oswald',sans-serif;font-weight:600;font-size:.85rem;letter-spacing:.5px}
+.radio-info .radio-desc{font-size:.73rem;color:var(--text-muted);margin-top:2px;line-height:1.4}
+.btn{padding:12px 24px;font-family:'Oswald',sans-serif;font-weight:600;font-size:.85rem;letter-spacing:2px;text-transform:uppercase;border:none;border-radius:5px;cursor:pointer;transition:.3s}
+.btn-primary{background:linear-gradient(135deg,var(--cuivre),var(--cuivre-dark));color:var(--blanc-casse);box-shadow:0 4px 14px rgba(201,114,62,.3)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(201,114,62,.4)}
+.btn-secondary{background:0 0;color:var(--cuivre);border:1px solid var(--cuivre)}
+.btn-secondary:hover{background:var(--cuivre-glow)}
+.btn-row{display:flex;gap:10px;margin-top:20px;flex-wrap:wrap}
+.generate-section{text-align:center;padding:32px 18px;border:2px dashed var(--border-subtle);border-radius:10px;margin:24px 0;background:var(--cuivre-glow2)}
+.generate-section p{font-size:.8rem;color:var(--text-muted);margin-bottom:16px}
+.plan-summary{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:9px;margin-bottom:20px}
+.summary-card{background:rgba(255,255,255,.04);border:1px solid var(--border-subtle);border-radius:7px;padding:12px;text-align:center}
+.summary-card .val{font-family:'Oswald',sans-serif;font-size:1.4rem;font-weight:700;color:var(--cuivre)}
+.summary-card .lbl{font-size:.65rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.8px;margin-top:2px}
+.week-block{margin-bottom:14px;border:1px solid rgba(255,255,255,.08);border-radius:7px;overflow:hidden}
+.week-header{display:flex;justify-content:space-between;align-items:center;padding:10px 12px;background:rgba(201,114,62,.1);border-bottom:1px solid var(--border-subtle);cursor:pointer;transition:.2s}
+.week-header:hover{background:rgba(201,114,62,.15)}
+.week-header h3{font-family:'Oswald',sans-serif;font-weight:600;font-size:.85rem;color:var(--cuivre);letter-spacing:.8px}
+.week-header .wv{font-size:.73rem;color:var(--text-muted)}
+.week-header .chev{color:var(--cuivre);transition:transform .3s;font-size:.75rem}
+.week-header .chev.open{transform:rotate(180deg)}
+.week-body{display:none}
+.week-body.open{display:block}
+.day-row{display:grid;grid-template-columns:80px 1fr 60px;gap:8px;padding:8px 12px;border-bottom:1px solid rgba(255,255,255,.04);align-items:center;font-size:.78rem}
+.day-row:last-child{border-bottom:none}
+.day-name{font-family:'Oswald',sans-serif;font-weight:500;color:var(--cuivre-clair);text-transform:uppercase;letter-spacing:.5px;font-size:.73rem}
+.day-content{color:var(--blanc-casse);line-height:1.45}
+.day-content .st{font-weight:600;color:var(--cuivre);font-size:.69rem;text-transform:uppercase;letter-spacing:.5px}
+.day-km{text-align:right;color:var(--text-muted);font-size:.73rem}
+.rest-day{color:var(--text-muted);font-style:italic}
+.paces-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:8px;margin-top:12px}
+.pace-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:5px;padding:10px;text-align:center}
+.pace-card .pp{font-family:'Oswald',sans-serif;font-weight:600;font-size:.8rem;color:var(--cuivre)}
+.pace-card .pv{font-weight:600;font-size:.92rem;margin:2px 0}
+.pace-card .pl{font-size:.6rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.5px}
+.glossary-item{padding:14px 16px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:7px;margin-bottom:8px;transition:.2s}
+.glossary-item:hover{border-color:var(--border-subtle)}
+.glossary-term{font-family:'Oswald',sans-serif;font-weight:700;font-size:.95rem;color:var(--cuivre);text-transform:uppercase;letter-spacing:.8px}
+.glossary-abbr{font-weight:300;font-size:.72rem;color:var(--cuivre-clair);margin-left:6px}
+.glossary-def{font-size:.8rem;line-height:1.55;margin-top:5px}
+.glossary-example{font-size:.72rem;color:var(--text-muted);margin-top:5px;padding-left:10px;border-left:2px solid var(--border-subtle);font-style:italic}
+.nutri-section{margin-bottom:24px}
+.nutri-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:7px;padding:16px;margin-bottom:10px}
+.nutri-card h4{font-family:'Oswald',sans-serif;font-weight:600;font-size:.85rem;color:var(--cuivre);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px}
+.nutri-card p,.nutri-card li{font-size:.8rem;line-height:1.55}
+.nutri-card ul{padding-left:16px;margin-top:5px}
+.nutri-card li{margin-bottom:3px}
+.nutri-hl{background:var(--cuivre-glow);border:1px solid var(--border-subtle);border-radius:5px;padding:10px 14px;margin-top:8px;font-size:.8rem;color:var(--cuivre-clair);font-weight:500}
+.nutri-table{width:100%;border-collapse:collapse;margin-top:8px;font-size:.75rem}
+.nutri-table th{background:rgba(201,114,62,.15);color:var(--cuivre);font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;letter-spacing:.5px;padding:7px 9px;text-align:left;border-bottom:1px solid var(--border-subtle)}
+.nutri-table td{padding:6px 9px;border-bottom:1px solid rgba(255,255,255,.04)}
+.day-constraint{display:grid;grid-template-columns:100px 1fr;gap:8px;align-items:center;padding:6px 0}
+.day-constraint label{font-size:.78rem;color:var(--cuivre-clair);font-family:'Oswald',sans-serif;font-weight:500;text-transform:uppercase;letter-spacing:.5px}
+.day-constraint select{font-size:.78rem;padding:7px 10px}
+.constraint-reason{font-size:.75rem;padding:6px 10px;margin-top:3px}
+.notif{position:fixed;top:18px;right:18px;padding:11px 16px;background:var(--gris-roche);border:1px solid var(--cuivre);border-radius:7px;color:var(--blanc-casse);font-size:.8rem;z-index:1000;animation:slideIn .3s ease;box-shadow:0 4px 18px rgba(0,0,0,.5)}
+@keyframes slideIn{from{transform:translateX(100%);opacity:0}to{transform:translateX(0);opacity:1}}
+.app-footer{text-align:center;padding:24px 18px;padding-bottom:max(24px,env(safe-area-inset-bottom));border-top:1px solid rgba(255,255,255,.06);margin-top:32px}
+.app-footer p{font-size:.65rem;color:var(--text-muted);letter-spacing:.8px}
+.app-footer .fb{font-family:'Oswald',sans-serif;color:var(--cuivre);font-weight:600}
+/* PRINT */
+@media print{
+  body{background:#fff;color:#000;font-size:9pt}
+  .app-header,.tab-nav,.generate-section,.btn-row,.app-footer,.notif,#tab-course,#tab-profil,#tab-sante,#tab-meteo,#tab-mental,#tab-sommeil,#tab-type-plan,#tab-nutrition,#tab-glossaire,#tab-simulateur,#tab-dispo,#tab-cgu{display:none!important}
+  #tab-plan{display:block!important;max-width:100%;padding:0}
+  #planAdvice{display:block!important}
+  .advice-box{border-color:#ccc;page-break-inside:avoid}
+  .advice-header{background:#f0f0f0!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .advice-item{border-color:#ccc!important}
+  .week-body{display:block!important}
+  .week-block{break-inside:avoid;border-color:#ccc;page-break-inside:avoid}
+  .week-header{background:#f0f0f0!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .week-header h3,.day-name{color:#333!important}
+  .summary-card{border-color:#ccc}
+  .summary-card .val{color:#A85C2E!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .pace-card{border-color:#ccc}
+  #printProfile{display:block!important;border:1px solid #ccc;padding:12px;margin-bottom:16px;page-break-after:avoid}
+  #printProfile h3{color:#A85C2E;font-size:11pt}
+  #printProfile td{padding:3px 8px;font-size:8pt;border-bottom:1px solid #eee}
+  #printProfile th{text-align:left;font-weight:600;padding:3px 8px;font-size:8pt}
+  @page{size:A3 landscape;margin:12mm}
+}
+#printProfile{display:none}
+/* SIMULATOR */
+.sim-result{margin-top:20px;padding:20px;background:rgba(255,255,255,.04);border:1px solid var(--border-subtle);border-radius:8px}
+.sim-row{display:grid;grid-template-columns:140px 1fr 100px;gap:8px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.04);align-items:center;font-size:.82rem}
+.sim-row:last-child{border-bottom:none}
+.sim-dist{font-family:'Oswald',sans-serif;font-weight:600;color:var(--cuivre);text-transform:uppercase;letter-spacing:.5px}
+.sim-time{font-weight:600;font-size:.95rem}
+.sim-pace{color:var(--text-muted);font-size:.78rem}
+.sim-bar{height:6px;background:rgba(255,255,255,.06);border-radius:3px;margin-top:4px;overflow:hidden}
+.sim-bar-fill{height:100%;background:linear-gradient(90deg,var(--cuivre),var(--cuivre-clair));border-radius:3px;transition:width .6s ease}
+.sim-factors{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px;margin-top:16px}
+.sim-factor{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:6px;padding:10px;text-align:center;font-size:.75rem}
+.sim-factor .sf-val{font-family:'Oswald',sans-serif;font-weight:600;font-size:1.1rem;color:var(--cuivre)}
+.sim-factor .sf-lbl{color:var(--text-muted);margin-top:2px}
+.sim-factor.positive .sf-val{color:var(--success)}
+.sim-factor.negative .sf-val{color:var(--danger)}
+/* FOOD SELECTOR */
+.food-meal{margin-bottom:18px}
+.food-grid{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.food-chip{display:inline-flex;align-items:center;gap:5px;padding:6px 11px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:20px;cursor:pointer;font-size:.75rem;transition:.2s;user-select:none}
+.food-chip:hover{border-color:var(--border-subtle)}
+.food-chip.selected{background:var(--cuivre-glow);border-color:var(--cuivre);color:var(--cuivre-clair)}
+.food-score{margin-top:20px;padding:16px;background:rgba(255,255,255,.04);border:1px solid var(--border-subtle);border-radius:8px}
+.score-bar{height:20px;background:rgba(255,255,255,.06);border-radius:10px;overflow:hidden;margin:10px 0}
+.score-fill{height:100%;border-radius:10px;transition:width .5s ease}
+.score-good{background:linear-gradient(90deg,#4CAF50,#8BC34A)}
+.score-ok{background:linear-gradient(90deg,#FF9800,#FFC107)}
+.score-bad{background:linear-gradient(90deg,#f44336,#FF5722)}
+.food-tips{margin-top:12px}
+.food-tip{padding:8px 12px;background:rgba(201,114,62,.08);border-left:3px solid var(--cuivre);margin-bottom:6px;font-size:.78rem;border-radius:0 5px 5px 0}
+/* ADVICE BLOCK */
+.advice-box{background:rgba(255,255,255,.04);border:1px solid var(--border-subtle);border-radius:10px;overflow:hidden}
+.advice-header{padding:16px 18px;background:rgba(201,114,62,.12);display:flex;align-items:center;gap:12px}
+.advice-header .advice-icon{font-size:1.8rem}
+.advice-header .advice-verdict{font-family:'Oswald',sans-serif;font-weight:700;font-size:1.1rem;text-transform:uppercase;letter-spacing:1px}
+.advice-body{padding:18px}
+.advice-body p{font-size:.82rem;line-height:1.6;margin-bottom:10px}
+.advice-item{display:flex;gap:10px;padding:10px 14px;background:rgba(255,255,255,.02);border-radius:6px;margin-bottom:8px;font-size:.8rem;line-height:1.5;align-items:flex-start}
+.advice-item .ai-icon{font-size:1.1rem;flex-shrink:0;margin-top:1px}
+.advice-item.positive{border-left:3px solid var(--success)}
+.advice-item.warning{border-left:3px solid #FF9800}
+.advice-item.danger{border-left:3px solid var(--danger)}
+.advice-item.neutral{border-left:3px solid var(--cuivre)}
+.advice-gauge{margin:16px 0;text-align:center}
+.advice-gauge .ag-bar{height:14px;background:rgba(255,255,255,.06);border-radius:7px;overflow:hidden;margin:8px 0}
+.advice-gauge .ag-fill{height:100%;border-radius:7px;transition:width .8s ease}
+.advice-gauge .ag-label{font-family:'Oswald',sans-serif;font-size:.75rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:1px}
+/* PREMIUM GATE */
+.premium-gate{text-align:center;padding:40px 24px;max-width:480px;margin:0 auto}
+.premium-gate .pg-logo{margin-bottom:20px}
+.premium-gate .pg-title{font-family:'Oswald',sans-serif;font-weight:700;font-size:1.3rem;color:var(--cuivre);text-transform:uppercase;letter-spacing:2px;margin-bottom:6px}
+.premium-gate .pg-sub{font-size:.82rem;color:var(--text-muted);line-height:1.5;margin-bottom:24px}
+.premium-gate .pg-input-row{display:flex;gap:8px;margin-bottom:12px}
+.premium-gate .pg-input-row input{flex:1;text-align:center;font-family:'Oswald',sans-serif;font-size:1rem;letter-spacing:3px;text-transform:uppercase}
+.premium-gate .pg-input-row button{white-space:nowrap}
+.premium-gate .pg-error{color:var(--danger);font-size:.78rem;margin-bottom:12px;display:none}
+.premium-gate .pg-divider{display:flex;align-items:center;gap:12px;margin:20px 0;color:var(--text-muted);font-size:.72rem}
+.premium-gate .pg-divider::before,.premium-gate .pg-divider::after{content:'';flex:1;height:1px;background:rgba(255,255,255,.1)}
+.premium-gate .pg-buy{display:inline-block;padding:14px 28px;background:linear-gradient(135deg,var(--cuivre),var(--cuivre-dark));color:var(--blanc-casse);font-family:'Oswald',sans-serif;font-weight:600;font-size:.9rem;letter-spacing:2px;text-transform:uppercase;border-radius:6px;text-decoration:none;transition:.3s;box-shadow:0 4px 15px rgba(201,114,62,.3)}
+.premium-gate .pg-buy:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(201,114,62,.4)}
+.premium-gate .pg-features{text-align:left;margin:24px 0;padding:18px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:8px}
+.premium-gate .pg-features h4{font-family:'Oswald',sans-serif;font-size:.85rem;color:var(--cuivre);text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px}
+.premium-gate .pg-feat{display:flex;align-items:center;gap:8px;padding:5px 0;font-size:.78rem}
+.premium-gate .pg-feat .check{color:var(--success)}
+.premium-gate .pg-feat .lock{color:var(--text-muted)}
+.premium-badge{display:inline-block;font-size:.45rem;background:var(--cuivre);color:#fff;padding:1px 4px;border-radius:3px;vertical-align:top;margin-left:2px;font-family:'Montserrat',sans-serif;font-weight:700;letter-spacing:.5px}
+/* CALENDAR */
+.cal-widget{background:rgba(255,255,255,.04);border:1px solid var(--border-subtle);border-radius:8px;padding:12px;max-width:320px}
+.cal-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.cal-nav{background:none;border:1px solid var(--border-subtle);color:var(--cuivre);font-size:.9rem;padding:4px 10px;border-radius:4px;cursor:pointer;transition:.2s}
+.cal-nav:hover{background:var(--cuivre-glow);border-color:var(--cuivre)}
+.cal-month-year{font-family:'Oswald',sans-serif;font-size:.9rem;color:var(--cuivre);text-transform:capitalize;letter-spacing:.5px}
+.cal-days-header{display:grid;grid-template-columns:repeat(7,1fr);text-align:center;font-family:'Oswald',sans-serif;font-size:.68rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px;padding-bottom:6px;border-bottom:1px solid rgba(255,255,255,.06)}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:2px}
+.cal-day{text-align:center;padding:7px 2px;font-size:.8rem;border-radius:4px;cursor:pointer;transition:.2s;color:var(--blanc-casse)}
+.cal-day:hover{background:var(--cuivre-glow);color:var(--cuivre)}
+.cal-day.selected{background:var(--cuivre);color:#fff;font-weight:700}
+.cal-day.today{border:1px solid var(--cuivre);font-weight:600}
+.cal-day.other-month{color:rgba(255,255,255,.2);cursor:default}
+.cal-day.other-month:hover{background:none;color:rgba(255,255,255,.2)}
+.cal-day.past{color:rgba(255,255,255,.15);cursor:not-allowed}
+.cal-day.past:hover{background:none;color:rgba(255,255,255,.15)}
+/* WEATHER */
+.weather-box{padding:18px;border-radius:10px;margin-bottom:16px;border:1px solid var(--border-subtle)}
+.weather-box.safe{background:rgba(76,175,80,.08);border-color:rgba(76,175,80,.3)}
+.weather-box.caution{background:rgba(255,152,0,.08);border-color:rgba(255,152,0,.3)}
+.weather-box.danger{background:rgba(244,67,54,.08);border-color:rgba(244,67,54,.3)}
+.weather-box.extreme{background:rgba(244,67,54,.15);border-color:rgba(244,67,54,.5)}
+.weather-temp{font-family:'Oswald',sans-serif;font-size:2.2rem;font-weight:700}
+.weather-detail{font-size:.78rem;color:var(--text-muted);margin-top:4px}
+.weather-alert{margin-top:10px;padding:10px 14px;border-radius:6px;font-size:.82rem;line-height:1.5}
+.weather-tips{margin-top:12px}
+.weather-tip{padding:7px 10px;font-size:.78rem;margin-bottom:5px;border-radius:4px;background:rgba(255,255,255,.03)}
+/* MENTAL */
+.mental-q{padding:14px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:7px;margin-bottom:10px}
+.mental-q p{font-size:.82rem;margin-bottom:8px}
+.mental-scale{display:flex;gap:6px}
+.mental-scale button{flex:1;padding:8px 4px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:5px;color:var(--blanc-casse);font-family:'Oswald',sans-serif;font-size:.85rem;cursor:pointer;transition:.2s}
+.mental-scale button:hover{border-color:var(--cuivre)}
+.mental-scale button.selected{background:var(--cuivre-glow);border-color:var(--cuivre);color:var(--cuivre)}
+.mantra-input{margin-top:16px}
+/* SLEEP */
+.sleep-gauge{text-align:center;margin:16px 0}
+.sleep-result{margin-top:16px}
+/* PREVENTION BODY MAP */
+.body-zones{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px;margin-top:10px}
+.body-zone{padding:10px 12px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:6px;cursor:pointer;transition:.2s;text-align:center;font-size:.8rem}
+.body-zone:hover{border-color:var(--border-subtle)}
+.body-zone.selected{background:rgba(244,67,54,.1);border-color:var(--danger);color:var(--danger)}
+.body-zone .bz-icon{font-size:1.3rem;display:block;margin-bottom:4px}
+.exercise-card{padding:14px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:7px;margin-bottom:10px}
+.exercise-card h4{font-family:'Oswald',sans-serif;font-size:.85rem;color:var(--cuivre);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px}
+.exercise-card p{font-size:.78rem;line-height:1.5}
+.exercise-card .ex-sets{font-size:.72rem;color:var(--cuivre-clair);margin-top:4px}
+.premium-unlocked{display:none;text-align:center;padding:10px;background:rgba(76,175,80,.1);border:1px solid rgba(76,175,80,.3);border-radius:6px;margin-bottom:16px;font-size:.8rem;color:var(--success)}
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-track{background:var(--noir-ardoise)}
+::-webkit-scrollbar-thumb{background:var(--cuivre);border-radius:3px}
+/* ========== RESPONSIVE TABLETTE ========== */
+@media(max-width:768px){
+  .form-row-3{grid-template-columns:1fr 1fr}
+  .sim-row{grid-template-columns:110px 1fr 80px}
+  .sim-factors{grid-template-columns:repeat(3,1fr)}
+  .day-constraint{grid-template-columns:80px 1fr}
+}
+/* ========== RESPONSIVE MOBILE ========== */
+@media(max-width:600px){
+  /* Header */
+  .app-header{padding:10px 12px;gap:8px}
+  .logo-svg{width:32px;height:32px}
+  .brand-text h1{font-size:.95rem;letter-spacing:1px}
+  .brand-text .tagline{font-size:.5rem;letter-spacing:2px}
+  .header-sub{display:none}
+  /* Tabs - horizontal scroll */
+  .tab-nav{gap:0;scrollbar-width:none;-ms-overflow-style:none}
+  .tab-nav::-webkit-scrollbar{display:none}
+  .tab-btn{min-width:56px;padding:8px 5px;font-size:.55rem;letter-spacing:.4px}
+  .tab-icon{font-size:.85rem;margin-bottom:1px}
+  /* Content */
+  .tab-content{padding:14px 12px}
+  .section-title{font-size:1.1rem;letter-spacing:1px}
+  .section-desc{font-size:.75rem;margin-bottom:14px}
+  .sub-title{font-size:.85rem;margin:16px 0 8px}
+  /* Forms */
+  .form-row,.form-row-3{grid-template-columns:1fr}
+  .form-group{margin-bottom:12px}
+  .form-group label{font-size:.7rem}
+  input[type="text"],input[type="number"],input[type="date"],select,textarea{padding:9px 10px;font-size:.82rem}
+  /* Checkboxes */
+  .checkbox-grid{grid-template-columns:1fr}
+  .checkbox-item{padding:7px 9px}
+  .checkbox-item span{font-size:.76rem}
+  /* Radios */
+  .radio-item{padding:10px 11px}
+  .radio-info .radio-label{font-size:.82rem}
+  .radio-info .radio-desc{font-size:.7rem}
+  /* Buttons */
+  .btn{padding:11px 18px;font-size:.8rem;letter-spacing:1.5px;width:100%}
+  .btn-row{flex-direction:column}
+  .btn-secondary{width:100%}
+  /* Plan */
+  .plan-summary{grid-template-columns:repeat(2,1fr);gap:6px}
+  .summary-card{padding:10px}
+  .summary-card .val{font-size:1.15rem}
+  .summary-card .lbl{font-size:.58rem}
+  .paces-grid{grid-template-columns:repeat(2,1fr);gap:6px}
+  .pace-card{padding:8px}
+  .pace-card .pp{font-size:.72rem}
+  .pace-card .pv{font-size:.82rem}
+  .day-row{grid-template-columns:55px 1fr 45px;gap:4px;padding:7px 8px;font-size:.72rem}
+  .day-name{font-size:.65rem}
+  .day-content .st{font-size:.62rem}
+  .day-km{font-size:.68rem}
+  .week-header{padding:9px 10px}
+  .week-header h3{font-size:.78rem}
+  /* Dispo */
+  .day-constraint{grid-template-columns:70px 1fr;gap:6px;padding:5px 0}
+  .day-constraint label{font-size:.7rem}
+  .day-constraint select{font-size:.73rem;padding:6px 8px}
+  /* Food chips */
+  .food-grid{gap:5px}
+  .food-chip{padding:5px 9px;font-size:.7rem;border-radius:16px}
+  .food-score{padding:12px}
+  .food-tip{font-size:.73rem;padding:7px 10px}
+  /* Simulator */
+  .sim-result{padding:14px}
+  .sim-row{grid-template-columns:90px 1fr 65px;gap:6px;font-size:.76rem}
+  .sim-dist{font-size:.72rem}
+  .sim-time{font-size:.85rem}
+  .sim-pace{font-size:.7rem}
+  .sim-factors{grid-template-columns:repeat(2,1fr);gap:6px}
+  .sim-factor{padding:8px}
+  .sim-factor .sf-val{font-size:.95rem}
+  .sim-factor .sf-lbl{font-size:.65rem}
+  /* Glossary */
+  .glossary-item{padding:11px 12px}
+  .glossary-term{font-size:.85rem}
+  .glossary-def{font-size:.75rem}
+  .glossary-example{font-size:.68rem}
+  /* Nutrition tab */
+  .nutri-card{padding:12px}
+  .nutri-card h4{font-size:.8rem}
+  .nutri-card p,.nutri-card li{font-size:.75rem}
+  .nutri-table{font-size:.68rem}
+  .nutri-table th,.nutri-table td{padding:5px 6px}
+  .nutri-hl{font-size:.73rem;padding:8px 10px}
+  /* Generate */
+  .generate-section{padding:24px 14px}
+  .generate-section p{font-size:.75rem}
+  /* Footer */
+  .app-footer{padding:18px 12px}
+  .app-footer p{font-size:.58rem}
+  /* Notif */
+  .notif{top:auto;bottom:16px;right:12px;left:12px;text-align:center;font-size:.78rem}
+}
+/* ========== VERY SMALL (iPhone SE etc) ========== */
+@media(max-width:380px){
+  .tab-btn{min-width:48px;padding:7px 3px;font-size:.48rem}
+  .tab-icon{font-size:.75rem}
+  .brand-text h1{font-size:.82rem}
+  .logo-svg{width:28px;height:28px}
+  .section-title{font-size:.95rem}
+  .day-row{grid-template-columns:45px 1fr 38px}
+  .sim-row{grid-template-columns:75px 1fr 55px}
+  .plan-summary{grid-template-columns:repeat(2,1fr)}
+  .summary-card .val{font-size:1rem}
+  .paces-grid{grid-template-columns:repeat(2,1fr)}
+  .sim-factors{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<header class="app-header">
+  <div class="logo-area">
+    <svg class="logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <path d="M50 15 L30 45 L15 35 L5 55" fill="none" stroke="#C9723E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M50 15 L70 45 L85 35 L95 55" fill="none" stroke="#C9723E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M5 70 L15 65 L22 72 L30 60 L38 75 L45 62 L50 70 L55 62 L62 75 L70 60 L78 72 L85 65 L95 70" fill="none" stroke="#C9723E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <div class="brand-text"><h1>Coach Holistique</h1><div class="tagline">Run free. Run wild.</div></div>
+  </div>
+  <span class="header-sub">by RunOnTheWildSide</span>
+</header>
+
+<nav class="tab-nav">
+  <button class="tab-btn active" onclick="switchTab('course')"><span class="tab-icon">🏔️</span>Course</button>
+  <button class="tab-btn" onclick="switchTab('profil')"><span class="tab-icon">🏃</span>Profil</button>
+  <button class="tab-btn" onclick="switchTab('dispo')"><span class="tab-icon">📅</span>Dispo</button>
+  <button class="tab-btn" onclick="switchTab('sante')"><span class="tab-icon">❤️</span>Santé</button>
+  <button class="tab-btn" onclick="switchTab('meteo')"><span class="tab-icon">🌡️</span>Météo</button>
+  <button class="tab-btn" onclick="switchTab('mental')"><span class="tab-icon">🧠</span>Mental</button>
+  <button class="tab-btn" onclick="switchTab('sommeil')"><span class="tab-icon">😴</span>Sommeil</button>
+  <button class="tab-btn" onclick="switchTab('type-plan')"><span class="tab-icon">📋</span>Plan</button>
+  <button class="tab-btn" onclick="switchTab('nutrition')"><span class="tab-icon">🍌</span>Nutri</button>
+  <button class="tab-btn" onclick="switchTab('simulateur')"><span class="tab-icon">🎯</span>Simul.</button>
+  <button class="tab-btn" onclick="switchTab('glossaire')"><span class="tab-icon">📖</span>Glossaire</button>
+  <button class="tab-btn" onclick="switchTab('plan')"><span class="tab-icon">⚡</span>Mon plan<span class="premium-badge">PRO</span></button>
+  <button class="tab-btn" onclick="switchTab('cgu')"><span class="tab-icon">📜</span>CGU</button>
+</nav>
+
+<!-- TAB COURSE -->
+<div id="tab-course" class="tab-content active">
+  <h2 class="section-title">Ta course</h2>
+  <p class="section-desc">Définis l'objectif qui guidera ton plan d'entraînement.</p>
+  <div class="form-group"><label>Type de course</label>
+    <select id="courseType"><option value="">— Sélectionne —</option><option value="route">Course sur route</option><option value="trail-court">Trail court (&lt; 40 km)</option><option value="trail-long">Trail long (≥ 40 km)</option><option value="cross">Cross-country</option><option value="piste">Piste</option><option value="obstacles">Course à obstacles</option></select>
+  </div>
+  <div class="form-group"><label>Distance</label>
+    <div class="form-row">
+      <select id="courseDistPreset" onchange="if(this.value)document.getElementById('courseDistCustom').value=''"><option value="">Distance usuelle…</option><option value="5">5 km</option><option value="10">10 km</option><option value="21.1">Semi-marathon</option><option value="42.195">Marathon</option></select>
+      <input type="number" id="courseDistCustom" placeholder="Ou distance libre (km)" step="0.1" min="1" oninput="if(this.value)document.getElementById('courseDistPreset').value=''">
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group">
+      <label>Date de la course</label>
+      <div id="calendarWidget" class="cal-widget">
+        <div class="cal-header">
+          <button type="button" class="cal-nav" onclick="calNav(-1)">◀</button>
+          <span id="calMonthYear" class="cal-month-year"></span>
+          <button type="button" class="cal-nav" onclick="calNav(1)">▶</button>
+        </div>
+        <div class="cal-days-header"><span>Lu</span><span>Ma</span><span>Me</span><span>Je</span><span>Ve</span><span>Sa</span><span>Di</span></div>
+        <div class="cal-grid" id="calGrid"></div>
+      </div>
+      <input type="hidden" id="courseDate">
+      <div id="dateInfo" style="font-size:.78rem;color:var(--cuivre-clair);margin-top:6px;font-weight:500"></div>
+    </div>
+    <div class="form-group"><label>Objectif chrono <span class="opt">(optionnel)</span></label><input type="text" id="courseObj" placeholder="ex: 1h45, 3h30…"></div>
+  </div>
+  <div class="form-row">
+    <div class="form-group"><label>Dénivelé positif (D+) <span class="opt">(optionnel — utile surtout en trail)</span></label><input type="number" id="courseDplus" placeholder="ex: 800" min="0" step="50"><p style="font-size:.68rem;color:var(--text-muted);margin-top:3px">En mètres. Indique le D+ total si tu le connais. Impact sur la projection de temps.</p></div>
+    <div class="form-group"></div>
+  </div>
+</div>
+
+<!-- TAB PROFIL -->
+<div id="tab-profil" class="tab-content">
+  <h2 class="section-title">Ton profil</h2>
+  <p class="section-desc">Plus tu détailles, plus le plan sera précis et adapté à toi.</p>
+
+  <h3 class="sub-title">👤 Caractéristiques personnelles</h3>
+  <div class="form-row-3">
+    <div class="form-group"><label>Âge <span class="opt">(optionnel)</span></label><input type="number" id="age" placeholder="ex: 42" min="10" max="99"></div>
+    <div class="form-group"><label>Taille (cm) <span class="opt">(optionnel)</span></label><input type="number" id="taille" placeholder="ex: 178" min="100" max="230" oninput="calcIMC()"></div>
+    <div class="form-group"><label>Poids (kg) <span class="opt">(optionnel)</span></label><input type="number" id="poids" placeholder="ex: 75" min="30" max="200" step="0.5" oninput="calcIMC()"></div>
+  </div>
+  <div id="imcBox" style="display:none;padding:12px 14px;background:rgba(255,255,255,.04);border:1px solid var(--border-subtle);border-radius:6px;margin-bottom:16px"></div>
+  <div class="form-row">
+    <div class="form-group"><label>Sexe <span class="opt">(optionnel)</span></label><select id="sexe"><option value="">—</option><option value="H">Homme</option><option value="F">Femme</option></select></div>
+    <div class="form-group"><label>Fumeur ?</label><select id="fumeur"><option value="non">Non</option><option value="oui">Oui</option><option value="ex">Ex-fumeur</option></select></div>
+  </div>
+  <div class="form-group"><label>Années de pratique course <span class="opt">(optionnel)</span></label><input type="number" id="anneesPratique" placeholder="ex: 5" min="0" max="60"></div>
+
+  <h3 class="sub-title">🏆 Records personnels <span class="opt">(optionnel — indique l'année pour plus de précision)</span></h3>
+  <div class="form-row" style="grid-template-columns:1fr auto 1fr auto;gap:8px;align-items:end">
+    <div class="form-group"><label>Record 5 km</label><input type="text" id="record5" placeholder="22:30"></div>
+    <div class="form-group"><label>Année</label><select id="record5Year" style="width:85px"><option value="">—</option><option>2026</option><option>2025</option><option>2024</option><option>2023</option><option>2022</option><option>2021</option><option>2020</option><option>2019</option><option>2018</option><option>avant</option></select></div>
+    <div class="form-group"><label>Record 10 km</label><input type="text" id="record10" placeholder="47:00"></div>
+    <div class="form-group"><label>Année</label><select id="record10Year" style="width:85px"><option value="">—</option><option>2026</option><option>2025</option><option>2024</option><option>2023</option><option>2022</option><option>2021</option><option>2020</option><option>2019</option><option>2018</option><option>avant</option></select></div>
+  </div>
+  <div class="form-row" style="grid-template-columns:1fr auto 1fr auto;gap:8px;align-items:end">
+    <div class="form-group"><label>Record Semi</label><input type="text" id="recordSemi" placeholder="1:45:00"></div>
+    <div class="form-group"><label>Année</label><select id="recordSemiYear" style="width:85px"><option value="">—</option><option>2026</option><option>2025</option><option>2024</option><option>2023</option><option>2022</option><option>2021</option><option>2020</option><option>2019</option><option>2018</option><option>avant</option></select></div>
+    <div class="form-group"><label>Record Marathon</label><input type="text" id="recordMarathon" placeholder="3:50:00"></div>
+    <div class="form-group"><label>Année</label><select id="recordMarathonYear" style="width:85px"><option value="">—</option><option>2026</option><option>2025</option><option>2024</option><option>2023</option><option>2022</option><option>2021</option><option>2020</option><option>2019</option><option>2018</option><option>avant</option></select></div>
+  </div>
+  <div class="form-row" style="grid-template-columns:1fr auto 1fr auto;gap:8px;align-items:end">
+    <div class="form-group"><label>Record 100 km <span class="opt">(route ou trail)</span></label><input type="text" id="record100" placeholder="10:30:00"></div>
+    <div class="form-group"><label>Année</label><select id="record100Year" style="width:85px"><option value="">—</option><option>2026</option><option>2025</option><option>2024</option><option>2023</option><option>2022</option><option>2021</option><option>2020</option><option>2019</option><option>2018</option><option>avant</option></select></div>
+    <div class="form-group"></div>
+    <div class="form-group"></div>
+  </div>
+
+  <h3 class="sub-title">👟 Chaussures</h3>
+  <div class="form-row">
+    <div class="form-group"><label>Type principal</label>
+      <select id="shoeType"><option value="route">Route classique</option><option value="carbone">Semelles carbone (compétition)</option><option value="tempo">Tempo / dynamique</option><option value="trail">Trail</option><option value="chemin">Chemin / mixte</option><option value="minimaliste">Minimaliste</option><option value="maximaliste">Maximaliste (Hoka, etc.)</option></select>
+    </div>
+    <div class="form-group"><label>Marque / Modèle <span class="opt">(optionnel)</span></label><input type="text" id="shoeBrand" placeholder="ex: Nike Vaporfly, Hoka Mach 6…"></div>
+  </div>
+  <div id="carbonInfo" style="display:none;padding:10px 14px;background:var(--cuivre-glow);border:1px solid var(--border-subtle);border-radius:5px;margin-bottom:16px;font-size:.78rem;color:var(--cuivre-clair);">
+    ⚡ <strong>Info carbone :</strong> Les études montrent un gain d'économie de course de 2-4%, mais principalement au-delà de 14-15 km/h. En dessous de cette allure, le bénéfice est limité voire nul. Réservez-les à la compétition et aux séances d'allure rapide — variez avec des chaussures classiques pour préserver la force intrinsèque de vos pieds.
+  </div>
+
+  <h3 class="sub-title">🏃 Entraînement running</h3>
+  <div class="form-row">
+    <div class="form-group"><label>Séances / semaine</label>
+      <select id="runSessions">
+        <option value="2">2</option><option value="3" selected>3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option>
+      </select>
+    </div>
+    <div class="form-group"><label>Volume hebdo (km)</label><input type="number" id="runVolume" placeholder="ex: 40" min="5" max="300"></div>
+  </div>
+
+  <h3 class="sub-title">⏱️ Tes allures actuelles <span class="opt">(optionnel mais recommandé)</span></h3>
+  <p style="font-size:.75rem;color:var(--text-muted);margin-bottom:12px">Indique tes allures habituelles en min/km. Le plan utilisera tes vraies allures plutôt que des estimations VMA.</p>
+  <div class="form-row-3">
+    <div class="form-group"><label>Endurance fondamentale (EF)</label><input type="text" id="allureEF" placeholder="ex: 5'45 ou 5:45"></div>
+    <div class="form-group"><label>Endurance active (EA)</label><input type="text" id="allureEA" placeholder="ex: 5'10 ou 5:10"></div>
+    <div class="form-group"><label>Footing récup</label><input type="text" id="allureFooting" placeholder="ex: 6'15 ou 6:15"></div>
+  </div>
+
+  <h3 class="sub-title">🚴 Vélo <span class="opt">(optionnel)</span></h3>
+  <div class="form-row">
+    <div class="form-group"><label>Séances / semaine</label>
+      <select id="bikeSessions">
+        <option value="0" selected>0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option>
+      </select>
+    </div>
+    <div class="form-group"><label>Volume hebdo (km) <span class="opt">(optionnel)</span></label><input type="number" id="bikeVolume" placeholder="ex: 80" min="0"></div>
+  </div>
+
+  <h3 class="sub-title">💪 Renforcement musculaire <span class="opt">(optionnel)</span></h3>
+  <div class="form-row">
+    <div class="form-group"><label>Séances / semaine</label>
+      <select id="renfoSessions"><option value="0" selected>0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option></select>
+    </div>
+    <div class="form-group"><label>Type de renfo</label>
+      <select id="renfoType"><option value="general">Gainage / PPG</option><option value="musculation">Musculation</option><option value="yoga">Yoga / Pilates</option><option value="crossfit">CrossFit / Fonctionnel</option></select>
+    </div>
+  </div>
+
+  <h3 class="sub-title">⚡ VMA</h3>
+  <div class="form-group"><label>Tu connais ta VMA ?</label>
+    <div class="form-row">
+      <select id="vmaMode" onchange="toggleVmaMode()"><option value="known">Oui</option><option value="estimate">Non, l'estimer</option></select>
+      <input type="number" id="vmaValue" placeholder="VMA en km/h" step="0.1" min="8" max="25">
+    </div>
+  </div>
+  <div id="vmaEstimate" style="display:none">
+    <div class="form-row">
+      <div class="form-group"><label>Distance de référence</label><select id="refDistance"><option value="5">5 km</option><option value="10" selected>10 km</option></select></div>
+      <div class="form-group"><label>Temps (mm:ss)</label><input type="text" id="refTime" placeholder="ex: 37:00" oninput="estimateVMA()"></div>
+    </div>
+    <div id="vmaResult" style="display:none;padding:10px 12px;background:var(--cuivre-glow);border:1px solid var(--border-subtle);border-radius:5px;margin-top:6px"></div>
+  </div>
+</div>
+
+<!-- TAB DISPO -->
+<div id="tab-dispo" class="tab-content">
+  <h2 class="section-title">Disponibilités</h2>
+  <p class="section-desc">Indique les jours où tu ne peux pas t'entraîner. Le plan s'adaptera automatiquement à ton emploi du temps.</p>
+  <div id="dispoGrid"></div>
+
+  <h3 class="sub-title" style="margin-top:28px">🏔️ Jours possibles pour les sorties longues (> 1h15)</h3>
+  <p style="font-size:.75rem;color:var(--text-muted);margin-bottom:12px">Les sorties longues demandent du temps. Coche les jours où tu pourrais placer une sortie de plus de 1h15.</p>
+  <div class="checkbox-grid" id="slDaysGrid"></div>
+</div>
+
+<!-- TAB SANTÉ -->
+<div id="tab-sante" class="tab-content">
+  <h2 class="section-title">Santé</h2>
+  <p class="section-desc">Signale toute condition physique pour que le plan s'adapte.</p>
+  <div class="form-group"><label>Pathologies connues <span class="opt">(sélection multiple)</span></label>
+    <div class="checkbox-grid">
+      <label class="checkbox-item"><input type="checkbox" value="tendinite"><span>Tendinite</span></label>
+      <label class="checkbox-item"><input type="checkbox" value="rotule"><span>Problème rotule</span></label>
+      <label class="checkbox-item"><input type="checkbox" value="perioste"><span>Périostite</span></label>
+      <label class="checkbox-item"><input type="checkbox" value="fascia"><span>Aponévrosite</span></label>
+      <label class="checkbox-item"><input type="checkbox" value="lombalgie"><span>Lombalgie</span></label>
+      <label class="checkbox-item"><input type="checkbox" value="cheville"><span>Problème cheville</span></label>
+      <label class="checkbox-item"><input type="checkbox" value="cardiaque"><span>Cardiaque</span></label>
+      <label class="checkbox-item"><input type="checkbox" value="asthme"><span>Asthme</span></label>
+      <label class="checkbox-item"><input type="checkbox" value="reprise"><span>Reprise long arrêt</span></label>
+      <label class="checkbox-item"><input type="checkbox" value="hernie"><span>Hernie discale</span></label>
+      <label class="checkbox-item"><input type="checkbox" value="genou"><span>Syndrome rotulien</span></label>
+      <label class="checkbox-item"><input type="checkbox" value="it-band"><span>Essuie-glace</span></label>
+    </div>
+  </div>
+  <div class="form-group"><label>Autres précisions <span class="opt">(optionnel)</span></label><textarea id="healthNotes" placeholder="Décris ici toute info complémentaire…"></textarea></div>
+
+  <h2 class="section-title" style="margin-top:30px">🛡️ Prévention & corps</h2>
+  <p class="section-desc">Coche les zones où tu ressens des douleurs ou des fragilités pour obtenir des exercices ciblés.</p>
+
+  <h3 class="sub-title">🦵 Zones sensibles</h3>
+  <p style="font-size:.78rem;color:var(--text-muted);margin-bottom:10px">Sélectionne les zones où tu as ou as eu des douleurs :</p>
+  <div class="body-zones" id="bodyZones"></div>
+
+  <div class="btn-row"><button class="btn btn-primary" onclick="analyzeBody()">🛡️ Voir mes exercices</button></div>
+  <div id="bodyResult" style="display:none"></div>
+
+  <h3 class="sub-title" style="margin-top:24px">📖 Les signaux d'alerte — quand s'arrêter</h3>
+  <div class="nutri-card"><h4>🟢 Continue</h4><p>Courbatures légères 24-48h après une séance dure, raideur matinale qui disparaît en marchant, fatigue modérée en fin de semaine de charge — tout ça est normal.</p></div>
+  <div class="nutri-card"><h4>🟡 Ralentis ou adapte</h4><p>Douleur qui apparaît pendant la course mais disparaît après, fatigue persistante sur plusieurs jours, motivation en baisse — allège ton programme, remplace une séance par du vélo ou de la natation.</p></div>
+  <div class="nutri-card"><h4>🔴 Stop et consulte</h4><p>Douleur qui s'aggrave pendant la course, douleur présente au repos ou la nuit, gonflement articulaire, douleur thoracique ou essoufflement anormal, sensation de blocage. Arrête immédiatement et consulte un médecin du sport.</p></div>
+</div>
+
+<!-- TAB MÉTÉO -->
+<div id="tab-meteo" class="tab-content">
+  <h2 class="section-title">Météo & conditions</h2>
+  <p class="section-desc">La chaleur est le premier danger du coureur. Renseigne ta ville pour obtenir les conditions en temps réel et adapter tes allures.</p>
+
+  <div class="form-row">
+    <div class="form-group"><label>Ta ville de course</label><input type="text" id="meteoVille" placeholder="ex: Lyon, Nantes, Paris…"></div>
+    <div class="form-group" style="display:flex;align-items:flex-end"><button class="btn btn-primary" onclick="fetchMeteo()" style="width:100%">🌡️ Voir la météo</button></div>
+  </div>
+  <div id="meteoResult"></div>
+
+  <div class="nutri-section" style="margin-top:24px">
+    <h3 class="sub-title">📖 Guide chaleur & course à pied</h3>
+    <div class="nutri-card"><h4>Adapter ses allures à la température</h4>
+      <table class="nutri-table">
+        <tr><th>Température</th><th>Ajustement allure</th><th>Hydratation</th><th>Risque</th></tr>
+        <tr><td>< 15°C</td><td>Allure normale</td><td>500 ml/h</td><td style="color:var(--success)">Faible</td></tr>
+        <tr><td>15-20°C</td><td>Allure normale</td><td>500-600 ml/h</td><td style="color:var(--success)">Faible</td></tr>
+        <tr><td>20-25°C</td><td>+5 à 10 sec/km</td><td>600-800 ml/h</td><td style="color:#FF9800">Modéré</td></tr>
+        <tr><td>25-30°C</td><td>+10 à 20 sec/km</td><td>800-1000 ml/h</td><td style="color:#FF9800">Élevé</td></tr>
+        <tr><td>30-35°C</td><td>+20 à 40 sec/km</td><td>1000+ ml/h</td><td style="color:var(--danger)">Très élevé</td></tr>
+        <tr><td>> 35°C</td><td>Reporter ou courir avant 8h / après 20h</td><td>—</td><td style="color:var(--danger)">Danger vital</td></tr>
+      </table>
+    </div>
+    <div class="nutri-card"><h4>Signes d'alerte à connaître</h4>
+      <p>Arrête immédiatement ta course si tu ressens : maux de tête violents, vertiges ou trouble de la vision, nausées ou vomissements, confusion mentale, arrêt de la transpiration malgré l'effort (signe d'un coup de chaleur), crampes généralisées. Mets-toi à l'ombre, asperge-toi d'eau fraîche, bois par petites gorgées et appelle le 15 si les symptômes persistent.</p>
+    </div>
+    <div class="nutri-card"><h4>Conseils par temps froid (< 5°C)</h4>
+      <p>Échauffement prolongé (15-20 min au lieu de 10), couvrir les extrémités (gants, bonnet, cache-cou), respirer par le nez pour réchauffer l'air, allures légèrement réduites les 10 premières minutes, s'hydrater même sans sensation de soif.</p>
+    </div>
+  </div>
+</div>
+
+<!-- TAB MENTAL -->
+<div id="tab-mental" class="tab-content">
+  <h2 class="section-title">Préparation mentale</h2>
+  <p class="section-desc">La course se gagne dans la tête. Évalue ton état mental et découvre les outils pour renforcer ta résilience le jour J.</p>
+
+  <h3 class="sub-title">🧠 Auto-évaluation mentale</h3>
+  <p style="font-size:.78rem;color:var(--text-muted);margin-bottom:14px">Réponds intuitivement — il n'y a pas de bonne ou mauvaise réponse. Ce score enrichira ton indice de faisabilité.</p>
+
+  <div class="mental-q" id="mq1"><p>1. Confiance dans l'atteinte de ton objectif ?</p><div class="mental-scale" data-q="1"><button onclick="selectMental(this,1)">1</button><button onclick="selectMental(this,2)">2</button><button onclick="selectMental(this,3)">3</button><button onclick="selectMental(this,4)">4</button><button onclick="selectMental(this,5)">5</button></div><div style="display:flex;justify-content:space-between;font-size:.65rem;color:var(--text-muted);margin-top:4px"><span>Pas confiant</span><span>Très confiant</span></div></div>
+
+  <div class="mental-q" id="mq2"><p>2. Gestion du stress pré-course ?</p><div class="mental-scale" data-q="2"><button onclick="selectMental(this,1)">1</button><button onclick="selectMental(this,2)">2</button><button onclick="selectMental(this,3)">3</button><button onclick="selectMental(this,4)">4</button><button onclick="selectMental(this,5)">5</button></div><div style="display:flex;justify-content:space-between;font-size:.65rem;color:var(--text-muted);margin-top:4px"><span>Très stressé</span><span>Serein</span></div></div>
+
+  <div class="mental-q" id="mq3"><p>3. Capacité à gérer la douleur et la fatigue pendant l'effort ?</p><div class="mental-scale" data-q="3"><button onclick="selectMental(this,1)">1</button><button onclick="selectMental(this,2)">2</button><button onclick="selectMental(this,3)">3</button><button onclick="selectMental(this,4)">4</button><button onclick="selectMental(this,5)">5</button></div><div style="display:flex;justify-content:space-between;font-size:.65rem;color:var(--text-muted);margin-top:4px"><span>J'abandonne vite</span><span>Je tiens toujours</span></div></div>
+
+  <div class="mental-q" id="mq4"><p>4. Motivation actuelle pour l'entraînement ?</p><div class="mental-scale" data-q="4"><button onclick="selectMental(this,1)">1</button><button onclick="selectMental(this,2)">2</button><button onclick="selectMental(this,3)">3</button><button onclick="selectMental(this,4)">4</button><button onclick="selectMental(this,5)">5</button></div><div style="display:flex;justify-content:space-between;font-size:.65rem;color:var(--text-muted);margin-top:4px"><span>Au plus bas</span><span>À fond</span></div></div>
+
+  <div class="mental-q" id="mq5"><p>5. Peur de la blessure ?</p><div class="mental-scale" data-q="5"><button onclick="selectMental(this,1)">1</button><button onclick="selectMental(this,2)">2</button><button onclick="selectMental(this,3)">3</button><button onclick="selectMental(this,4)">4</button><button onclick="selectMental(this,5)">5</button></div><div style="display:flex;justify-content:space-between;font-size:.65rem;color:var(--text-muted);margin-top:4px"><span>Très peur</span><span>Aucune peur</span></div></div>
+
+  <div id="mentalScore" style="display:none;margin-top:16px;padding:14px;background:var(--cuivre-glow);border:1px solid var(--border-subtle);border-radius:7px"></div>
+
+  <div class="mantra-input form-group" style="margin-top:20px">
+    <label>🏔️ Ton mantra personnel <span class="opt">(ta phrase de force pour le jour J)</span></label>
+    <input type="text" id="mantraInput" placeholder="ex: Je suis plus fort que la distance. / Chaque foulée me rapproche.">
+    <p style="font-size:.7rem;color:var(--text-muted);margin-top:6px;font-style:italic">« Courir n'est pas fuir. C'est revenir à l'essentiel. » — ROTWS</p>
+  </div>
+
+  <h3 class="sub-title" style="margin-top:28px">🧰 Boîte à outils mentale</h3>
+  <div class="nutri-card"><h4>Le fractionnement mental</h4><p>Ne pense jamais à la distance totale. Découpe ta course en segments de 5 km. À chaque segment, concentre-toi uniquement sur le suivant. Sur un marathon, tu ne cours pas 42 km — tu cours 8 fois 5 km avec un bonus de 2 km.</p></div>
+  <div class="nutri-card"><h4>La visualisation pré-course</h4><p>La veille au soir, ferme les yeux 5 minutes. Visualise-toi au départ (calme, confiant), en course (foulée fluide, respiration maîtrisée), et surtout à l'arrivée (le sourire, la fierté, la médaille). Ton cerveau ne fait pas la différence entre une expérience vécue et une expérience visualisée intensément.</p></div>
+  <div class="nutri-card"><h4>Le protocole "ça ne va plus"</h4><p>Quand le doute arrive (et il arrivera) : 1. Ralentis de 10-15 sec/km pendant 2 min. 2. Concentre-toi sur ta respiration (inspire 3 pas, expire 2 pas). 3. Mange ou bois quelque chose. 4. Répète ton mantra 5 fois. 5. Relance progressivement. 90% du temps, ça repart.</p></div>
+  <div class="nutri-card"><h4>La gestion du "mur" mental</h4><p>Le mur physique (glycogène) et le mur mental sont différents. Le mur mental arrive quand tu commences à calculer combien il reste. Parade : pense à quelqu'un qui croit en toi, rappelle-toi pourquoi tu cours, concentre-toi sur ta foulée (pieds légers, épaules relâchées). Le corps peut continuer bien au-delà de ce que le mental veut accepter.</p></div>
+</div>
+
+<!-- TAB SOMMEIL -->
+<div id="tab-sommeil" class="tab-content">
+  <h2 class="section-title">Sommeil & récupération</h2>
+  <p class="section-desc">Le sommeil est le facteur n°1 de la récupération — devant la nutrition et l'hydratation. Dis-nous comment tu dors.</p>
+
+  <div class="form-row-3">
+    <div class="form-group"><label>Heure de coucher moyenne</label><select id="sleepBed"><option value="21">21h</option><option value="21.5">21h30</option><option value="22" selected>22h</option><option value="22.5">22h30</option><option value="23">23h</option><option value="23.5">23h30</option><option value="24">Minuit</option><option value="0.5">0h30</option><option value="1">1h+</option></select></div>
+    <div class="form-group"><label>Heure de lever moyenne</label><select id="sleepWake"><option value="5">5h</option><option value="5.5">5h30</option><option value="6">6h</option><option value="6.5" selected>6h30</option><option value="7">7h</option><option value="7.5">7h30</option><option value="8">8h</option><option value="8.5">8h30+</option></select></div>
+    <div class="form-group"><label>Qualité perçue</label><select id="sleepQuality"><option value="1">😫 Mauvaise</option><option value="2">😐 Moyenne</option><option value="3" selected>🙂 Correcte</option><option value="4">😊 Bonne</option><option value="5">😴 Excellente</option></select></div>
+  </div>
+  <div class="form-row">
+    <div class="form-group"><label>Siestes <span class="opt">(optionnel)</span></label><select id="sleepNap"><option value="0">Jamais</option><option value="1">Parfois (1-2/sem)</option><option value="2">Souvent (3+/sem)</option></select></div>
+    <div class="form-group"><label>Entraînement après 20h ?</label><select id="sleepLateTraining"><option value="non">Non / Rarement</option><option value="oui">Oui, souvent</option></select></div>
+  </div>
+
+  <div class="btn-row"><button class="btn btn-primary" onclick="analyzeSleep()">😴 Analyser mon sommeil</button></div>
+  <div id="sleepResult" style="display:none"></div>
+
+  <h3 class="sub-title" style="margin-top:24px">📖 Hygiène du sommeil du coureur</h3>
+  <div class="nutri-card"><h4>Les règles d'or</h4><p>Vise 7h30-9h par nuit (un coureur a besoin de plus qu'un sédentaire). Couche-toi et lève-toi à heures fixes, même le week-end. Évite les écrans 30 min avant le coucher (lumière bleue = cortisol). La chambre doit être fraîche (18-19°C), sombre et silencieuse.</p></div>
+  <div class="nutri-card"><h4>Course et sommeil</h4><p>Pas de fractionné ni de séance intense après 20h — le cortisol met 2-3h à redescendre. Un footing léger en soirée est acceptable. Les sorties longues du week-end améliorent la qualité du sommeil la nuit suivante. En période d'affûtage, dors 30 min de plus par nuit.</p></div>
+  <div class="nutri-card"><h4>La dette de sommeil</h4><p>1h de dette de sommeil = -10% de performance estimée. 5 nuits à 6h au lieu de 7h30 = l'équivalent d'une nuit blanche. La dette ne se rattrape pas en une grasse matinée — il faut 3-4 jours de sommeil normal pour compenser.</p></div>
+</div>
+
+<!-- TAB PRÉVENTION -->
+<!-- TAB TYPE DE PLAN -->
+<div id="tab-type-plan" class="tab-content">
+  <h2 class="section-title">Type de plan</h2>
+  <p class="section-desc">Choisis la philosophie d'entraînement qui te correspond.</p>
+  <div class="radio-grid">
+    <label class="radio-item" onclick="selectPlan(this)"><input type="radio" name="planType" value="ffa"><div class="radio-info"><div class="radio-label">FFA — Périodisation classique</div><div class="radio-desc">Cycles structurés : développement, spécifique, affûtage. Pour coureurs expérimentés.</div></div></label>
+    <label class="radio-item selected" onclick="selectPlan(this)"><input type="radio" name="planType" value="80-20" checked><div class="radio-info"><div class="radio-label">80/20 — Polarisé</div><div class="radio-desc">80% EF, 20% intensité. Validé scientifiquement, excellent ratio progression/récupération.</div></div></label>
+    <label class="radio-item" onclick="selectPlan(this)"><input type="radio" name="planType" value="lydiard"><div class="radio-info"><div class="radio-label">Lydiard — Base aérobie</div><div class="radio-desc">Base aérobie massive avant la vitesse. Pour longues distances.</div></div></label>
+    <label class="radio-item" onclick="selectPlan(this)"><input type="radio" name="planType" value="hit"><div class="radio-info"><div class="radio-label">HIT — Haute intensité</div><div class="radio-desc">Intervalles intenses, volume réduit. Pour ceux qui ont peu de temps.</div></div></label>
+    <label class="radio-item" onclick="selectPlan(this)"><input type="radio" name="planType" value="progressif"><div class="radio-info"><div class="radio-label">Progressif doux — Reprise / Débutant</div><div class="radio-desc">Progression graduelle, alternance marche-course. Priorité plaisir et régularité.</div></div></label>
+  </div>
+</div>
+
+<!-- TAB NUTRITION -->
+<div id="tab-nutrition" class="tab-content">
+  <h2 class="section-title">Nutrition & bilan</h2>
+  <p class="section-desc">L'alimentation peut faire perdre un marathon. Voici les clés nutritionnelles du coureur + ton bilan personnalisé.</p>
+  <div class="nutri-section"><h3 class="sub-title">💧 Hydratation</h3><div class="nutri-card"><h4>Au quotidien</h4><p>Calcul : <strong>35 ml × poids (kg)</strong>. Ex : 75 kg = 2,6 L/jour hors entraînement.</p></div><div class="nutri-card"><h4>Pendant l'effort</h4><p>500-800 ml/h. Boire toutes les 15-20 min dès le début de l'effort. 1% de perte de poids = 10% de capacité en moins.</p></div><div class="nutri-card"><h4>Après l'effort</h4><p>1,5× le poids perdu dans les 2-4h suivantes. Pesez-vous avant/après.</p></div></div>
+  <div class="nutri-section"><h3 class="sub-title">📅 Semaine pré-compétition</h3><div class="nutri-card"><h4>Régime dissocié scandinave adapté</h4><table class="nutri-table"><tr><th>Jour</th><th>Alimentation</th></tr><tr><td>J-7 à J-5</td><td>Favoriser protéines + graisses végétales, réduire féculents</td></tr><tr><td>J-4 à J-2</td><td>Glucides ++ : pâtes, riz, pain, pommes de terre</td></tr><tr><td>J-1</td><td>Glucides + pauvre en résidus (fibres limitées)</td></tr></table></div></div>
+  <div class="nutri-section"><h3 class="sub-title">🏁 Jour de course</h3><div class="nutri-card"><h4>Pendant l'effort — les 3 piliers</h4><table class="nutri-table"><tr><th>Eau</th><th>Glucides</th><th>Sodium</th></tr><tr><td>500-800 ml/h</td><td>30-60g/h (gel, gommes, compote)</td><td>1-3g sel/h</td></tr></table><div class="nutri-hl">Règle d'or : ne JAMAIS tester un aliment ou gel pour la première fois le jour J.</div></div></div>
+  <div class="nutri-section"><h3 class="sub-title">🔄 Récupération</h3><div class="nutri-card"><h4>Fenêtre 0-30 min</h4><p>Eau bicarbonatée + lait chocolaté ou yaourt + fruits secs. Puis repas complet dans les 2h.</p></div></div>
+
+  <h2 class="section-title" style="margin-top:30px">🥗 Bilan nutritionnel interactif</h2>
+  <p class="section-desc">Dis-nous ce que tu manges typiquement. Score basé sur la règle GLP 4-2-1 : 4× plus de glucides que de protéines, 2× plus que de lipides.</p>
+
+  <div id="bilanContent">
+    <div class="food-meal"><h3 class="sub-title">🌅 Petit-déjeuner <span style="font-size:.7rem;color:var(--text-muted);text-transform:none;font-weight:300">(30-40% de l'apport journalier)</span></h3><div class="food-grid" id="food-pdj"></div></div>
+    <div class="food-meal"><h3 class="sub-title">🍎 Collation matin <span class="opt">(~10h — 10% de l'apport)</span></h3><div class="food-grid" id="food-colmatin"></div></div>
+    <div class="food-meal"><h3 class="sub-title">☀️ Déjeuner <span style="font-size:.7rem;color:var(--text-muted);text-transform:none;font-weight:300">(25% de l'apport journalier)</span></h3><div class="food-grid" id="food-dej"></div></div>
+    <div class="food-meal"><h3 class="sub-title">🍌 Collation après-midi <span class="opt">(~16h — goûter 10%)</span></h3><div class="food-grid" id="food-colapm"></div></div>
+    <div class="food-meal"><h3 class="sub-title">🌙 Dîner <span style="font-size:.7rem;color:var(--text-muted);text-transform:none;font-weight:300">(15% de l'apport journalier)</span></h3><div class="food-grid" id="food-diner"></div></div>
+    <div class="btn-row"><button class="btn btn-primary" onclick="analyzeDiet()">🔍 Analyser mon alimentation</button></div>
+    <div id="dietResult" style="display:none"></div>
+  </div>
+</div>
+
+<!-- TAB SIMULATEUR -->
+<div id="tab-simulateur" class="tab-content">
+  <h2 class="section-title">Simulateur de performance</h2>
+  <p class="section-desc">Estime tes temps possibles sur différentes distances. Le simulateur utilise tes records (formule de Riegel) ou ta VMA (table de Mercier), puis ajuste selon 6 facteurs de ton profil (âge, sexe, expérience, tabac, chaussures, IMC).</p>
+
+  <div class="nutri-card" style="margin-bottom:16px"><h4>Comment ça marche ?</h4><p>Si tu as renseigné des records (5km, 10km, semi, marathon) dans l'onglet Profil, le simulateur utilise la <strong>formule de Riegel</strong> — la plus fiable car basée sur ta performance réelle. Sinon, il estime à partir de ta <strong>VMA via la table de Mercier</strong> (% de VMA soutenable par distance). Dans les deux cas, le résultat est ajusté selon ton profil pour coller à ta réalité.</p></div>
+
+  <div id="simContent">
+    <div class="btn-row" style="margin-bottom:0"><button class="btn btn-primary" onclick="runSimulator()">🎯 Simuler mes performances</button></div>
+    <div id="simResult" style="display:none"></div>
+  </div>
+</div>
+
+<!-- TAB GLOSSAIRE -->
+<div id="tab-glossaire" class="tab-content">
+  <h2 class="section-title">Glossaire running</h2>
+  <p class="section-desc">Toutes les définitions pour comprendre ton plan.</p>
+  <div class="form-group"><input type="text" id="glossarySearch" placeholder="Rechercher un terme…" oninput="filterGlossary()"></div>
+  <div id="glossaryList"></div>
+</div>
+
+<!-- TAB MON PLAN -->
+<div id="tab-plan" class="tab-content">
+  <h2 class="section-title">Mon plan d'entraînement</h2>
+  <p class="section-desc">Génère ton plan personnalisé.</p>
+
+  <!-- Premium gate -->
+  <div id="genSec">
+    <div id="premiumUnlocked" class="premium-unlocked">✅ Accès Premium activé — Bonne préparation !</div>
+    <div id="premiumGate" class="premium-gate">
+      <div class="pg-logo">
+        <svg width="64" height="64" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <path d="M50 15 L30 45 L15 35 L5 55" fill="none" stroke="#C9723E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M50 15 L70 45 L85 35 L95 55" fill="none" stroke="#C9723E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M5 70 L15 65 L22 72 L30 60 L38 75 L45 62 L50 70 L55 62 L62 75 L70 60 L78 72 L85 65 L95 70" fill="none" stroke="#C9723E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="pg-title">Accès Premium</div>
+      <div class="pg-sub">Le plan d'entraînement personnalisé, les conseils personnalisés et l'indice de faisabilité détaillé sont réservés aux membres Premium de la communauté ROTWS.</div>
+
+      <div class="pg-features">
+        <h4>Ce que tu débloques avec le code Premium</h4>
+        <div class="pg-feat"><span class="check">✅</span> Plan d'entraînement personnalisé semaine par semaine avec allures précises</div>
+        <div class="pg-feat"><span class="check">✅</span> Conseils personnalisés & indice de faisabilité détaillé (15 critères analysés)</div>
+        <div class="pg-feat"><span class="check">✅</span> Export CSV + Impression A3 du plan complet</div>
+        <div class="pg-feat"><span class="check">✅</span> Accès immédiat après achat</div>
+        <div style="margin-top:10px;padding-top:8px;border-top:1px solid rgba(255,255,255,.06)">
+          <div class="pg-feat"><span style="color:var(--cuivre)">🆓</span> <span style="color:var(--text-muted)">Déjà gratuit : Simulateur de performance, Bilan nutritionnel, Glossaire, Guide nutrition</span></div>
+        </div>
+      </div>
+
+      <div class="pg-input-row">
+        <input type="text" id="premiumCode" placeholder="CODE PREMIUM" onkeydown="if(event.key==='Enter')validateCode()">
+        <button class="btn btn-primary" onclick="validateCode()" style="width:auto">Activer</button>
+      </div>
+      <div class="pg-error" id="codeError">❌ Code invalide. Vérifie ton code et réessaie.</div>
+
+      <div class="pg-divider">Pas encore de code ?</div>
+      <a href="https://gumroad.com" target="_blank" class="pg-buy">🏔️ Obtenir mon accès — 5€</a>
+      <p style="font-size:.68rem;color:var(--text-muted);margin-top:10px">Paiement sécurisé · Accès immédiat · Voir CGU</p>
+    </div>
+
+    <div id="genSecInner" class="generate-section" style="display:none">
+      <p>Tout est prêt ! Génère ton programme personnalisé.</p>
+      <button class="btn btn-primary" onclick="generatePlan()">⚡ Générer mon plan</button>
+    </div>
+  </div>
+
+  <div id="planOutput" style="display:none">
+    <div id="printProfile"></div>
+    <div class="plan-summary" id="planSummary"></div>
+    <h3 class="sub-title">Allures (min/km)</h3>
+    <div class="paces-grid" id="pacesGrid"></div>
+    <h3 class="sub-title" style="margin-top:20px">Allures spécifiques course</h3>
+    <div class="paces-grid" id="spePacesGrid"></div>
+    <h3 class="sub-title" style="margin-top:24px">Programme semaine par semaine</h3>
+    <div id="weeksContainer"></div>
+    <div id="planAdvice" style="display:none;margin-top:28px"></div>
+    <div class="btn-row" style="justify-content:center;margin-top:24px">
+      <button class="btn btn-secondary" onclick="exportCSV()">📄 CSV</button>
+      <button class="btn btn-secondary" onclick="window.print()">🖨️ Imprimer A3</button>
+    </div>
+  </div>
+</div>
+
+<!-- TAB CGU -->
+<div id="tab-cgu" class="tab-content">
+  <h2 class="section-title">Conditions Générales d'Utilisation</h2>
+  <p class="section-desc">En utilisant l'application Coach Holistique RunOnTheWildSide, vous acceptez les présentes conditions sans réserve.</p>
+
+  <div class="nutri-card">
+    <h4>1. Objet</h4>
+    <p>L'application Coach Holistique RunOnTheWildSide (ci-après "l'Application") est un outil d'aide à la planification d'entraînement en course à pied, proposant des plans d'entraînement, des conseils nutritionnels, des outils de suivi du sommeil, de préparation mentale et de prévention des blessures. L'Application est éditée par Loïc Queudrue, entrepreneur individuel (ci-après "l'Éditeur"). L'Application est accessible via le site web hébergé sur GitHub Pages.</p>
+  </div>
+
+  <div class="nutri-card">
+    <h4>2. Absence de conseil médical</h4>
+    <p><strong style="color:var(--danger)">L'Application ne constitue en aucun cas un dispositif médical, un outil de diagnostic, ni une consultation médicale.</strong> Les plans d'entraînement, les conseils nutritionnels, les recommandations sur le sommeil, la préparation mentale et la prévention des blessures sont fournis à titre informatif et éducatif uniquement. Ils ne se substituent en aucun cas aux conseils d'un médecin, d'un médecin du sport, d'un diététicien, d'un kinésithérapeute ou de tout autre professionnel de santé.</p>
+    <p style="margin-top:8px">L'utilisateur est invité à consulter un médecin avant de commencer ou de modifier un programme d'entraînement, en particulier s'il présente des pathologies connues, des antécédents médicaux, ou s'il n'a pas pratiqué d'activité physique depuis plus de 6 mois. Un certificat médical de non-contre-indication à la pratique de la course à pied en compétition est recommandé.</p>
+  </div>
+
+  <div class="nutri-card">
+    <h4>3. Utilisation sous la responsabilité de l'utilisateur</h4>
+    <p><strong>L'utilisateur utilise l'Application sous sa seule et entière responsabilité.</strong> Il reconnaît pratiquer la course à pied et toute activité physique associée à ses propres risques. L'utilisateur s'engage à :</p>
+    <p style="margin-top:6px">— Utiliser l'Application avec prudence et discernement ;<br>
+    — Interrompre immédiatement l'entraînement en cas de douleur, sensations inhabituelles, malaise, vertiges, essoufflement anormal ou tout autre signe d'alerte ;<br>
+    — Adapter les séances proposées à sa condition physique réelle et à son état de forme du jour ;<br>
+    — Ne pas dépasser ses capacités physiques, même si le plan suggère une intensité donnée ;<br>
+    — S'hydrater suffisamment et adapter ses sorties aux conditions météorologiques (chaleur, froid, orage) ;<br>
+    — S'assurer de disposer d'un équipement adapté et en bon état.</p>
+  </div>
+
+  <div class="nutri-card">
+    <h4>4. Limitation de responsabilité</h4>
+    <p>L'Éditeur ne pourra être tenu responsable :</p>
+    <p style="margin-top:6px">— De toute blessure, accident, malaise, aggravation d'une pathologie préexistante ou dommage corporel survenant lors de l'utilisation de l'Application ou de la mise en pratique des plans d'entraînement et des conseils proposés ;<br>
+    — Des résultats sportifs obtenus ou non obtenus par l'utilisateur. Les performances dépendent de nombreux facteurs (assiduité, santé, génétique, environnement, récupération, alimentation) et ne sont en aucun cas garanties ;<br>
+    — De toute erreur, omission ou imprécision dans les contenus de l'Application, y compris dans les calculs d'allures, les plans d'entraînement, les scores nutritionnels, les indices de faisabilité et les recommandations ;<br>
+    — Des conséquences liées à une mauvaise interprétation ou une mauvaise application des conseils ;<br>
+    — De tout dysfonctionnement technique, interruption de service ou perte de données.</p>
+    <p style="margin-top:8px"><strong>L'utilisateur est seul responsable de l'interprétation et de l'usage qu'il fait des informations fournies par l'Application.</strong></p>
+  </div>
+
+  <div class="nutri-card">
+    <h4>5. Données nutritionnelles et de santé</h4>
+    <p>Les conseils nutritionnels sont basés sur des principes généraux de nutrition sportive issus de la littérature scientifique. Ils ne constituent pas un régime alimentaire personnalisé et ne remplacent pas une consultation avec un diététicien ou un nutritionniste. Les scores nutritionnels et les analyses sont des indicateurs pédagogiques et ne doivent pas être interprétés comme un diagnostic nutritionnel.</p>
+  </div>
+
+  <div class="nutri-card">
+    <h4>6. Données météorologiques</h4>
+    <p>Les données météo sont fournies par un service tiers (OpenWeatherMap). L'Éditeur ne garantit pas l'exactitude, l'exhaustivité ni la disponibilité de ces données. Les recommandations d'adaptation des allures à la chaleur sont indicatives. L'utilisateur reste seul juge des conditions dans lesquelles il décide de courir.</p>
+  </div>
+
+  <div class="nutri-card">
+    <h4>7. Protection des données personnelles</h4>
+    <p>L'Application ne collecte, ne stocke et ne transmet aucune donnée personnelle. Toutes les informations saisies par l'utilisateur (profil, santé, nutrition, sommeil, etc.) restent exclusivement dans le navigateur de l'utilisateur (stockage local) et ne sont jamais envoyées à un serveur. L'Éditeur n'a accès à aucune donnée utilisateur. La seule connexion externe est l'appel à l'API météo (OpenWeatherMap) qui transmet uniquement le nom de la ville saisie.</p>
+  </div>
+
+  <div class="nutri-card">
+    <h4>8. Propriété intellectuelle</h4>
+    <p>L'ensemble des contenus de l'Application (textes, algorithmes, design, logo, charte graphique) est la propriété de l'Éditeur et est protégé par le droit d'auteur. Toute reproduction, diffusion, revente ou exploitation commerciale sans autorisation écrite est interdite. L'utilisateur s'engage à un usage strictement personnel de l'Application et de ses contenus.</p>
+  </div>
+
+  <div class="nutri-card">
+    <h4>9. Accès Premium</h4>
+    <p>L'accès aux fonctionnalités Premium est conditionné à l'achat d'un code d'activation. Conformément à l'article L221-28 du Code de la consommation, les contenus numériques fournis immédiatement après achat ne sont pas soumis au droit de rétractation. En activant le code, l'utilisateur accepte la mise à disposition immédiate du contenu et renonce expressément à son droit de rétractation. L'Éditeur se réserve le droit de modifier les tarifs et les conditions d'accès à tout moment, sans rétroactivité sur les accès déjà acquis.</p>
+  </div>
+
+  <div class="nutri-card">
+    <h4>10. Modification des CGU et de l'Application</h4>
+    <p>L'Éditeur se réserve le droit de modifier les présentes CGU, le contenu de l'Application, les fonctionnalités proposées et les algorithmes de calcul à tout moment et sans préavis. L'utilisateur est invité à consulter régulièrement cette page. L'utilisation continue de l'Application après modification vaut acceptation des nouvelles CGU.</p>
+  </div>
+
+  <div class="nutri-card">
+    <h4>11. Droit applicable et litiges</h4>
+    <p>Les présentes CGU sont régies par le droit français. En cas de litige, une solution amiable sera recherchée en priorité. À défaut, les tribunaux compétents du ressort du domicile de l'Éditeur seront seuls compétents.</p>
+  </div>
+
+  <div style="margin-top:20px;padding:16px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:8px;text-align:center">
+    <p style="font-size:.78rem;color:var(--text-muted)">Dernière mise à jour : avril 2026</p>
+    <p style="font-size:.78rem;color:var(--text-muted);margin-top:4px">Contact : <a href="mailto:loic.queudrue44115@gmail.com" style="color:var(--cuivre)">loic.queudrue44115@gmail.com</a></p>
+    <p style="font-size:.72rem;color:var(--text-muted);margin-top:8px;font-style:italic">En utilisant l'Application, vous reconnaissez avoir lu et accepté les présentes Conditions Générales d'Utilisation.</p>
+  </div>
+</div>
+
+<footer class="app-footer"><p><span class="fb">Coach Holistique RunOnTheWildSide</span> — Corps · Mental · Nutrition — Run free. Run wild.</p><p style="margin-top:4px">Créé par Loïc Queudrue</p></footer>
+
+<script>
+// GLOSSARY
+const G=[
+{t:"VMA",a:"Vitesse Maximale Aérobie",d:"Vitesse maximale soutenue 4-8 min, correspondant à la VO2max. Les allures se calculent en % de VMA.",e:"VMA 15 km/h → 400m en 1'36\" (100%)."},
+{t:"VO2max",a:"",d:"Volume max d'O2 consommé par minute. La VMA en est la traduction en vitesse.",e:"55 ml/min/kg ≈ VMA 15-16 km/h."},
+{t:"Endurance Fondamentale",a:"EF",d:"Allure lente (60-70% VMA) permettant de parler sans essoufflement. Base de tout entraînement. Échauffements, récup, sorties longues.",e:"VMA 16 → EF à 5'30\"-6'00\"/km."},
+{t:"Endurance Active",a:"EA",d:"70-75% VMA. Conversation possible mais moins aisée. Sorties moyennes.",e:"VMA 16 → EA à 5'00\"-5'20\"/km."},
+{t:"Seuil Anaérobie",a:"Seuil / SV2",d:"80-90% VMA. Allure de compétition 10 km+. Au-delà, l'acide lactique s'accumule. Travaillé dans les 2 derniers mois.",e:"2×3000m ou 3×8' à allure seuil, récup 3' trot."},
+{t:"Fractionné",a:"Interval Training",d:"Alternance effort intense / récupération. VMA, seuil ou allure spécifique. 200m à 3000m.",e:"10×400m récup 1' ou 8×300m récup 50\"."},
+{t:"Fartlek",a:"Jeu de vitesse",d:"Variations d'allure libres pendant un footing. Plus ludique que le fractionné classique.",e:"6-8 accélérations de 30s-1min pendant un footing de 45'."},
+{t:"Sortie Longue",a:"SL",d:"Sortie en endurance > 1h. Développe l'endurance aérobie, habitue à puiser dans les graisses.",e:"Semi → 1h15-1h30. Marathon → 1h30-2h."},
+{t:"Allure Spécifique",a:"AS",d:"Vitesse visée en compétition. Se travaille les 2 derniers mois.",e:"Objectif 45' sur 10 km → AS = 4'30\"/km."},
+{t:"FCM",a:"Fréquence Cardiaque Maximale",d:"Max de battements/min à l'effort maximal. Zones d'entraînement en % FCM. Estimation : 220 - âge (approximatif).",e:"40 ans → FCM théorique 180 bpm. EF à 117-135 bpm."},
+{t:"PPG",a:"Préparation Physique Générale",d:"Renforcement musculaire ciblé : gainage, proprioception, chaîne postérieure. 2-3×/semaine. Stopper 5 jours avant course.",e:"Gainage 30\"-1' front/côtés/arrière + crunchs."},
+{t:"Éducatifs",a:"Gammes",d:"Exercices techniques avant séance rapide : talons-fesses, montées de genoux, jambes tendues (3×15\").",e:"Échauffement = 20' footing + éducatifs + 3 lignes droites."},
+{t:"Lignes droites",a:"LD",d:"Accélérations progressives sur 80-100m en fin d'échauffement. Activent les fibres rapides.",e:"3×100m en accélération, retour en marchant."},
+{t:"Retour au calme",a:"RAC",d:"Footing très lent 5-10 min après séance rapide. Favorise l'élimination des déchets.",e:"Après VMA : 5-10' de trot très lent."},
+{t:"Semaine de récupération",a:"Décharge",d:"Semaine allégée (~70% du volume) toutes les 3-4 semaines. Évite le surentraînement.",e:"40 km/sem habituel → 25-28 km en décharge."},
+{t:"Affûtage",a:"Taper",d:"Réduction du volume 1-3 semaines avant l'objectif. Quelques rappels de vitesse, volume réduit.",e:"Dernière semaine : 1/3 à 1/2 du volume. Dernière grosse séance à J-10."},
+{t:"Glycogène",a:"",d:"Stockage du glucose dans les muscles (350-400g) et le foie (100g). Carburant principal du marathonien.",e:"Le « mur du marathon » au 30e km = épuisement du glycogène."},
+{t:"Le Mur",a:"",d:"Moment redouté du marathon (~30e km) où les réserves de glycogène sont épuisées. Chute brutale de performance.",e:"Le régime dissocié scandinave vise à repousser ce mur."},
+{t:"Allure / Pace",a:"",d:"Vitesse en min/km (temps pour parcourir 1 km). Plus c'est bas, plus on va vite.",e:"10 km en 50 min = 5'00\"/km = 12 km/h."},
+{t:"D+ / D-",a:"Dénivelé",d:"Cumul des mètres gagnés (D+) ou perdus (D-). Critère majeur en trail.",e:"Trail 40 km / 2000m D+ = exigeant."},
+{t:"Polarisé (80/20)",a:"",d:"80% en EF, 20% en haute intensité. Allures intermédiaires évitées. Validé par la recherche.",e:"Sur 5 séances : 4 faciles + 1 intense."},
+{t:"Périodisation",a:"",d:"Organisation en phases : développement, spécifique, pré-compétition, affûtage.",e:"Nov-Déc: VMA / Jan-Mar: seuil / Avr: affûtage."},
+{t:"Test d'effort",a:"",d:"Examen médical pour mesurer VMA, FCM et détecter des problèmes. Recommandé pour vétérans.",e:"Test sur tapis : vitesses croissantes jusqu'à l'épuisement."},
+{t:"Aérobie",a:"",d:"Muscles utilisent l'O2 comme carburant. Allures faibles à modérées (65-80% VMA). Confort respiratoire.",e:"Tout footing en EF est aérobie."},
+{t:"Anaérobie",a:"",d:"Intensité > capacités d'oxygénation (90-105% VMA). Glycogène = carburant, acide lactique produit.",e:"Les séances VMA sont anaérobies."},
+{t:"Bigorexie",a:"",d:"Dépendance excessive au sport (OMS). 15% des sportifs > 10h/semaine concernés.",e:"Organiser sa vie uniquement autour des courses = signal d'alerte."},
+];
+function renderGlossary(f=''){const l=document.getElementById('glossaryList');const fl=G.filter(g=>{const s=f.toLowerCase();return g.t.toLowerCase().includes(s)||g.a.toLowerCase().includes(s)||g.d.toLowerCase().includes(s)});l.innerHTML=fl.map(g=>`<div class="glossary-item"><span class="glossary-term">${g.t}</span>${g.a?`<span class="glossary-abbr">(${g.a})</span>`:''}<div class="glossary-def">${g.d}</div>${g.e?`<div class="glossary-example">${g.e}</div>`:''}</div>`).join('')}
+function filterGlossary(){renderGlossary(document.getElementById('glossarySearch').value)}
+
+// DISPO GRID
+function buildDispoGrid(){
+  const days=['Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi','Dimanche'];
+  const c=document.getElementById('dispoGrid');
+  c.innerHTML=days.map((d,i)=>`
+    <div class="day-constraint">
+      <label>${d}</label>
+      <select id="dispo_${i}" onchange="toggleReason(${i})">
+        <option value="ok">✅ Disponible</option>
+        <option value="ko">❌ Indisponible</option>
+        <option value="matin">🌅 Matin seulement</option>
+        <option value="soir">🌙 Soir seulement</option>
+        <option value="midi">☀️ Midi seulement</option>
+      </select>
+    </div>
+    <div id="reason_${i}" style="display:none;padding-left:108px;margin-bottom:8px">
+      <input type="text" class="constraint-reason" id="reasonText_${i}" placeholder="Raison (ex: déplacement pro, enfants…)">
+    </div>
+  `).join('');
+  // SL days checkboxes
+  const sl=document.getElementById('slDaysGrid');
+  sl.innerHTML=days.map((d,i)=>`<label class="checkbox-item"><input type="checkbox" id="sl_${i}" ${(i===5||i===6)?'checked':''}><span>${d}</span></label>`).join('');
+}
+function toggleReason(i){
+  const v=document.getElementById('dispo_'+i).value;
+  document.getElementById('reason_'+i).style.display=(v!=='ok')?'block':'none';
+}
+function getAvailableDays(){
+  const r=[];
+  for(let i=0;i<7;i++){const v=document.getElementById('dispo_'+i).value;if(v!=='ko')r.push(i)}
+  return r;
+}
+
+// IMC CALCULATOR
+function calcIMC(){
+  const t=parseFloat(document.getElementById('taille').value);
+  const p=parseFloat(document.getElementById('poids').value);
+  const box=document.getElementById('imcBox');
+  if(!t||!p||t<100||p<20){box.style.display='none';return}
+  const h=t/100;
+  const imc=Math.round((p/(h*h))*10)/10;
+  let cat='',color='',comment='';
+  if(imc<18.5){cat='Insuffisance pondérale';color='#FF9800';comment='Un poids trop faible peut nuire à la récupération et à l\'immunité. Les coureurs très légers gagnent en rapport poids/puissance mais risquent blessures et fatigue chronique.'}
+  else if(imc<20){cat='Mince';color='var(--success)';comment='Zone idéale pour la course à pied ! Les meilleurs coureurs de fond se situent souvent entre 18,5 et 20,5 d\'IMC. Excellent rapport poids/puissance.'}
+  else if(imc<22){cat='Normal — optimal coureur';color='var(--success)';comment='Très bon profil pour la course. La plupart des marathoniens performants sont dans cette fourchette. Chaque kg en moins ≈ 2-3 sec/km de gain sur marathon.'}
+  else if(imc<25){cat='Normal';color='var(--cuivre-clair)';comment='Poids santé correct. Une légère perte de poids pourrait améliorer ton rapport poids/puissance, mais ce n\'est pas prioritaire par rapport à l\'entraînement.'}
+  else if(imc<30){cat='Surpoids';color='#FF9800';comment='Le surpoids augmente les contraintes articulaires (+7× le poids à chaque foulée). Privilégie une progression lente et des chaussures avec bon amorti. La perte de poids via la course est un excellent objectif.'}
+  else{cat='Obésité';color='var(--danger)';comment='Un avis médical est recommandé avant de courir. Commence par de la marche rapide / marche-course très progressive. Chaque kilo perdu se ressentira immédiatement à la course.'}
+
+  box.style.display='block';
+  box.innerHTML=`
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+      <span style="font-family:'Oswald';font-weight:600;font-size:.85rem;color:var(--cuivre);text-transform:uppercase;letter-spacing:.5px">IMC</span>
+      <span style="font-family:'Oswald';font-weight:700;font-size:1.3rem;color:${color}">${imc}</span>
+    </div>
+    <div style="height:6px;background:rgba(255,255,255,.06);border-radius:3px;overflow:hidden;margin-bottom:8px">
+      <div style="height:100%;width:${Math.min(100,imc/40*100)}%;background:${color};border-radius:3px;transition:width .4s"></div>
+    </div>
+    <div style="font-size:.78rem;font-weight:500;color:${color};margin-bottom:4px">${cat}</div>
+    <div style="font-size:.75rem;color:var(--text-muted);line-height:1.5">${comment}</div>
+    <div style="font-size:.68rem;color:var(--text-muted);margin-top:6px;font-style:italic">Poids idéal estimé coureur : ${Math.round(h*h*20)}-${Math.round(h*h*22)} kg (IMC 20-22)</div>
+  `;
+}
+
+// TABS
+const tabIds=['course','profil','dispo','sante','meteo','mental','sommeil','type-plan','nutrition','simulateur','glossaire','plan','cgu'];
+function switchTab(t){document.querySelectorAll('.tab-content').forEach(e=>e.classList.remove('active'));document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));document.getElementById('tab-'+t).classList.add('active');const i=tabIds.indexOf(t);if(i>=0)document.querySelectorAll('.tab-btn')[i].classList.add('active');window.scrollTo({top:0,behavior:'smooth'})}
+
+// VMA
+function toggleVmaMode(){const m=document.getElementById('vmaMode').value;document.getElementById('vmaEstimate').style.display=m==='estimate'?'block':'none';document.getElementById('vmaValue').style.display=m==='known'?'block':'none'}
+function estimateVMA(){const d=parseFloat(document.getElementById('refDistance').value);const ts=document.getElementById('refTime').value.trim();if(!ts)return;const p=ts.split(':');if(p.length!==2)return;const mm=parseInt(p[0]),ss=parseInt(p[1]);if(isNaN(mm)||isNaN(ss))return;const tm=mm+ss/60;let v;if(d===5)v=(5/(tm/60))/0.93;else v=(10/(tm/60))/0.88;v=Math.round(v*10)/10;document.getElementById('vmaResult').style.display='block';document.getElementById('vmaResult').innerHTML=`<span style="font-family:'Oswald';color:var(--cuivre);font-size:1rem;font-weight:600">VMA estimée : ${v} km/h</span><br><span style="font-size:.73rem;color:var(--text-muted)">Basé sur ${d} km en ${mm}min${ss.toString().padStart(2,'0')}s</span>`;document.getElementById('vmaValue').value=v}
+function selectPlan(el){document.querySelectorAll('.radio-item').forEach(r=>r.classList.remove('selected'));el.classList.add('selected');el.querySelector('input').checked=true}
+function notify(m){const n=document.createElement('div');n.className='notif';n.textContent=m;document.body.appendChild(n);setTimeout(()=>n.remove(),3000)}
+function getVMA(){const m=document.getElementById('vmaMode').value;if(m==='known')return parseFloat(document.getElementById('vmaValue').value)||0;estimateVMA();return parseFloat(document.getElementById('vmaValue').value)||0}
+function vmaToPace(v,p){const s=v*p;if(s<=0)return'--:--';const mpk=60/s;const m=Math.floor(mpk),sec=Math.round((mpk-m)*60);return`${m}'${sec.toString().padStart(2,'0')}"`}
+function vmaToSpeed(v,p){return Math.round(v*p*10)/10}
+
+// SHOE INFO
+document.getElementById('shoeType').addEventListener('change',function(){document.getElementById('carbonInfo').style.display=this.value==='carbone'?'block':'none'});
+
+// ==================== PREMIUM CODE SYSTEM ====================
+// --- LOÏC : ajoute tes codes ici. Chaque code que tu vends sur Gumroad, tu l'ajoutes à cette liste. ---
+// --- Les anciens codes restent valides pour les acheteurs. ---
+const VALID_CODES = [
+  'ROTWS-2026',
+  'WILDSIDE-01',
+  // Ajoute tes futurs codes ci-dessous, un par ligne :
+  // 'ROTWS-MAI-2026',
+  // 'ROTWS-JUIN-2026',
+];
+
+function isPremium(){
+  return sessionStorage.getItem('rotws_premium')==='true';
+}
+
+function validateCode(){
+  const input=document.getElementById('premiumCode').value.trim().toUpperCase();
+  const errorEl=document.getElementById('codeError');
+  if(VALID_CODES.map(c=>c.toUpperCase()).includes(input)){
+    sessionStorage.setItem('rotws_premium','true');
+    unlockPremium();
+    notify('✅ Accès Premium activé ! Bonne préparation !');
+  } else {
+    errorEl.style.display='block';
+    document.getElementById('premiumCode').style.borderColor='var(--danger)';
+    setTimeout(()=>{errorEl.style.display='none';document.getElementById('premiumCode').style.borderColor=''},3000);
+  }
+}
+
+function unlockPremium(){
+  document.getElementById('premiumGate').style.display='none';
+  document.getElementById('premiumUnlocked').style.display='block';
+  document.getElementById('genSecInner').style.display='block';
+  document.querySelectorAll('.premium-badge').forEach(b=>b.textContent='✅');
+}
+
+function checkPremiumOnLoad(){
+  if(isPremium())unlockPremium();
+}
+
+// GENERATE
+function generatePlan(){
+  const cType=document.getElementById('courseType').value;
+  const dist=parseFloat(document.getElementById('courseDistCustom').value||document.getElementById('courseDistPreset').value);
+  const cDate=document.getElementById('courseDate').value;
+  const rS=parseInt(document.getElementById('runSessions').value);
+  const rV=parseInt(document.getElementById('runVolume').value)||30;
+  const bS=parseInt(document.getElementById('bikeSessions').value);
+  const reS=parseInt(document.getElementById('renfoSessions').value);
+  const pt=document.querySelector('input[name="planType"]:checked')?.value||'80-20';
+  const vma=getVMA();
+  if(!cType){notify('Sélectionne un type de course !');switchTab('course');return}
+  if(!dist||dist<=0){notify('Indique une distance !');switchTab('course');return}
+  if(!cDate){notify('Indique la date !');switchTab('course');return}
+  if(!vma||vma<8){notify('Renseigne ta VMA !');switchTab('profil');return}
+  const today=new Date();today.setHours(0,0,0,0);const race=new Date(cDate);
+  const tw=Math.floor((race-today)/(7*864e5));
+  if(tw<3){notify('Min 3 semaines avant la course !');return}
+  if(tw>30){notify('Max 30 semaines.');return}
+  const avail=getAvailableDays();
+  if(avail.length<2){notify('Il faut au moins 2 jours disponibles !');switchTab('dispo');return}
+  // Get SL preferred days
+  const slDays=[];
+  for(let i=0;i<7;i++){const cb=document.getElementById('sl_'+i);if(cb&&cb.checked&&avail.includes(i))slDays.push(i)}
+  const health=[];document.querySelectorAll('#tab-sante input[type="checkbox"]:checked').forEach(c=>health.push(c.value));
+  const isReprise=health.includes('reprise');
+  const isFumeur=document.getElementById('fumeur').value==='oui';
+  const age=parseInt(document.getElementById('age').value)||0;
+  const weeks=[];
+  const tpW=dist>=42?3:dist>=21?2:1;
+  const bW=tw-tpW;
+  const bVol=isReprise?Math.min(rV*.6,20):rV*.7;
+  const pVol=isReprise?rV:rV*1.2;
+  // Adjust for smoker/age
+  const ageFactor=age>50?0.92:age>60?0.85:1;
+  const smokeFactor=isFumeur?0.9:1;
+
+  for(let w=1;w<=tw;w++){
+    const isRec=w%4===0&&w<tw-tpW;const isTp=w>tw-tpW;const isRW=w===tw;
+    let wt;
+    if(isRW)wt=bVol*.4;else if(isTp){const ti=w-(tw-tpW);wt=pVol*(1-ti*.2)}else if(isRec)wt=(bVol+(pVol-bVol)*Math.min(w/bW,1))*.7;else wt=bVol+(pVol-bVol)*Math.min(w/bW,1);
+    wt=Math.round(wt*ageFactor*smokeFactor);
+    let phase;if(isRW)phase='COURSE';else if(isTp)phase='AFFÛTAGE';else if(isRec)phase='RÉCUPÉRATION';else if(w<=bW*.4)phase='DÉVELOPPEMENT';else if(w<=bW*.7)phase='SPÉCIFIQUE';else phase='PRÉ-COMPÉTITION';
+    const sess=buildWeek(w,tw,rS,bS,reS,wt,vma,dist,pt,phase,isRW,cType,avail,slDays);
+    weeks.push({num:w,phase,days:sess.days,totalKm:sess.totalKm,isRec,isTp,isRW});
+  }
+  displayPlan(weeks,vma,dist,cType,tw,pt);
+}
+
+function buildWeek(wn,tw,rS,bS,reS,wkKm,vma,dist,pt,phase,isRW,cType,avail,slDays){
+  const dn=['Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi','Dimanche'];
+  const res=[];let tk=0;
+  // Distribute run sessions across available days, ensuring SL day is included
+  let runDays=pickDays(Math.min(rS,avail.length),avail);
+  // Find which run day should be the SL day (prefer user SL days)
+  let slRunDay=-1;
+  for(const sd of slDays){if(runDays.includes(sd)){slRunDay=sd;break}}
+  // If no SL day in runDays, try to swap one in
+  if(slRunDay<0 && slDays.length>0 && avail.some(d=>slDays.includes(d))){
+    const candidate=slDays.find(d=>avail.includes(d));
+    if(candidate!==undefined && !runDays.includes(candidate) && runDays.length>0){
+      runDays[runDays.length-1]=candidate;runDays.sort((a,b)=>a-b);
+    }
+    slRunDay=candidate;
+  }
+  if(slRunDay<0 && runDays.length>0)slRunDay=runDays[runDays.length-1]; // fallback: last run day
+
+  const remaining=avail.filter(d=>!runDays.includes(d));
+  const bikeDays=pickDays(Math.min(bS,remaining.length),remaining);
+  const remAfterBike=avail.filter(d=>!bikeDays.includes(d));
+  const renfoDays=pickDays(Math.min(reS,remAfterBike.length),remAfterBike);
+
+  for(let d=0;d<7;d++){
+    let c='',km=0,st='';
+    if(isRW&&d===6){c=`🏔️ JOUR DE COURSE ! ${dist} km`;km=dist;st='COURSE'}
+    else if(isRW&&d>=4){c='Repos — Préparation mentale';st='REPOS'}
+    else if(runDays.includes(d)){
+      const isSL=(d===slRunDay);
+      const si=runDays.indexOf(d);
+      const s=getRS(si,runDays.length,wkKm,vma,dist,pt,phase,cType,isSL);
+      c=s.desc;km=s.km;st=s.type;
+    }
+    if(bikeDays.includes(d)&&!isRW){if(c)c+='\n';c+='🚴 Vélo : sortie 45-60min';st=st||'VÉLO'}
+    if(renfoDays.includes(d)&&!isRW){if(c)c+='\n';c+='💪 Renfo : gainage, squats, fentes (30-40min)';st=st||'RENFO'}
+    if(!c){c='Repos';st='REPOS'}
+    tk+=km;res.push({day:dn[d],content:c,km,sessionType:st});
+  }
+  return{days:res,totalKm:Math.round(tk)};
+}
+
+function pickDays(n,pool){
+  if(n<=0||pool.length===0)return[];
+  // Spread sessions evenly
+  const sorted=[...pool].sort((a,b)=>a-b);
+  if(n>=sorted.length)return sorted;
+  const step=sorted.length/n;const r=[];
+  for(let i=0;i<n;i++)r.push(sorted[Math.round(i*step)]);
+  return r;
+}
+
+function getRS(si,ts,wkKm,vma,dist,pt,phase,ct,isSL){
+  const avg=wkKm/ts;
+  // Use real allures if provided, otherwise fall back to VMA-based
+  const userEF=document.getElementById('allureEF').value.trim();
+  const userEA=document.getElementById('allureEA').value.trim();
+  const userFoot=document.getElementById('allureFooting').value.trim();
+  const efP=userEF||vmaToPace(vma,.65);
+  const eaP=userEA||vmaToPace(vma,.70);
+  const footP=userFoot||vmaToPace(vma,.60);
+  const svP=vmaToPace(vma,.75),smP=vmaToPace(vma,.80),vmaP=vmaToPace(vma,1);
+  // Allures spécifiques course (AS/SPE)
+  const spe42P=vmaToPace(vma,.775); // marathon ~77.5% VMA
+  const spe21P=vmaToPace(vma,.825); // semi ~82.5% VMA
+  const spe10P=vmaToPace(vma,.875); // 10km ~87.5% VMA
+  const spe5P=vmaToPace(vma,.935);  // 5km ~93.5% VMA
+  // Determine which SPE to use based on target distance
+  let speLabel,speP;
+  if(dist>=42){speLabel='AS42';speP=spe42P}
+  else if(dist>=21){speLabel='AS21';speP=spe21P}
+  else if(dist>=10){speLabel='AS10';speP=spe10P}
+  else{speLabel='AS5';speP=spe5P}
+  const isT=ct.includes('trail');
+  const T={
+    'DÉVELOPPEMENT':[
+      {t:'EF',d:`🏃 EF — ${Math.round(avg*1.2)} km à ${efP}/km`,k:1.2},
+      {t:'FARTLEK',d:`🔥 Fartlek — ${Math.round(avg)} km, 6-8 accélérations 30s-1min`,k:1},
+      {t:'SL',d:`🏔️ Sortie longue — ${Math.round(avg*1.6)} km à ${efP}/km`,k:1.6},
+      {t:'EF',d:`🏃 Footing souple — ${Math.round(avg*.8)} km à ${footP}/km`,k:.8},
+      {t:'CÔTES',d:`⛰️ Côtes — 8×30s côte + retour calme. ~${Math.round(avg*.7)} km`,k:.7},
+      {t:'EA',d:`🏃 EA + gammes — ${Math.round(avg)} km à ${eaP}/km`,k:1},
+      {t:'FARTLEK',d:`🔥 Fartlek libre — ${Math.round(avg*.9)} km, variations au feeling`,k:.9},
+      {t:'EF',d:`🏃 Footing récup — ${Math.round(avg*.6)} km à ${footP}/km`,k:.6},
+      {t:'VMA',d:`⚡ VMA courte — 8×200m à ${vmaP}/km + retour. ~${Math.round(avg*.7)} km`,k:.7},
+      {t:'SL',d:`🏔️ SL modérée — ${Math.round(avg*1.3)} km à ${efP}/km`,k:1.3},
+      {t:'EF',d:`🏃 Footing technique — ${Math.round(avg*.8)} km à ${efP}/km + éducatifs`,k:.8},
+      {t:'EF',d:`🏃 EF tranquille — ${Math.round(avg*.7)} km à ${footP}/km`,k:.7},
+    ],
+    'SPÉCIFIQUE':[
+      {t:'EF',d:`🏃 EF — ${Math.round(avg)} km à ${efP}/km`,k:1},
+      {t:'SEUIL',d:`🎯 Seuil — 3×10' à ${svP}/km (r=3'). ~${Math.round(avg*1.1)} km`,k:1.1},
+      {t:'SL',d:`🏔️ SL ${isT?'D+':''} — ${Math.round(avg*1.8)} km à ${efP}/km, fin à ${svP}/km`,k:1.8},
+      {t:'VMA',d:`⚡ VMA — 10×400m à ${vmaP}/km (r=1'15). ~${Math.round(avg*.8)} km`,k:.8},
+      {t:'EF',d:`🏃 Footing + LD — ${Math.round(avg*.7)} km à ${footP}/km`,k:.7},
+      {t:speLabel,d:`🎯 ${speLabel} — Allure spé ${dist>=42?'marathon':dist>=21?'semi':dist>=10?'10km':'5km'} : ${dist>=42?'3×20\'':dist>=21?'5×2km':'6×1km'} à ${speP}/km (r=${dist>=42?'5\'':'2\''}). ~${Math.round(avg*1.1)} km`,k:1.1},
+      {t:'EF',d:`🏃 Récup — ${Math.round(avg*.6)} km à ${footP}/km`,k:.6},
+      {t:'SEUIL',d:`🎯 Seuil long — 2×15' à ${svP}/km. ~${Math.round(avg*1.2)} km`,k:1.2},
+      {t:'VMA',d:`⚡ VMA longue — 5×1000m à 95% VMA. ~${Math.round(avg)} km`,k:1},
+      {t:'EA',d:`🏃 EA — ${Math.round(avg*.7)} km à ${eaP}/km`,k:.7},
+      {t:speLabel,d:`🎯 ${speLabel} long — ${dist>=42?'2×40\'':dist>=21?'3×15\'':'4×2km'} à ${speP}/km. SL à allure spé. ~${Math.round(avg*1.5)} km`,k:1.5},
+      {t:'EF',d:`🏃 Footing + stretching — ${Math.round(avg*.5)} km à ${footP}/km`,k:.5},
+    ],
+    'PRÉ-COMPÉTITION':[
+      {t:'EF',d:`🏃 EF — ${Math.round(avg*.9)} km à ${efP}/km`,k:.9},
+      {t:speLabel,d:`🎯 ${speLabel} — Validation allure cible : 2×15' à ${speP}/km (r=3'). ~${Math.round(avg)} km`,k:1},
+      {t:'SL',d:`🏔️ Dernière SL — ${Math.round(avg*1.5)} km à ${efP}/km`,k:1.5},
+      {t:'VMA',d:`⚡ 12×200m à ${vmaP}/km. ~${Math.round(avg*.7)} km`,k:.7},
+      {t:'EF',d:`🏃 Régénération — ${Math.round(avg*.6)} km à ${footP}/km`,k:.6},
+      {t:speLabel,d:`🎯 ${speLabel} rappel — ${dist>=42?'1×30\'':dist>=21?'2×10\'':'3×1km'} à ${speP}/km. Dernière séance spé. ~${Math.round(avg*.8)} km`,k:.8},
+    ],
+    'AFFÛTAGE':[
+      {t:'EF',d:`🏃 Footing léger — ${Math.round(avg*.7)} km à ${footP}/km`,k:.7},
+      {t:'RAPPEL',d:`⚡ Rappel — 5×200m vite. ~${Math.round(avg*.5)} km`,k:.5},
+      {t:'EF',d:`🏃 Footing + 4 accélérations — ${Math.round(avg*.6)} km à ${efP}/km`,k:.6},
+      {t:'EF',d:`🏃 Décrassage — ${Math.round(avg*.4)} km à ${footP}/km`,k:.4},
+    ],
+    'RÉCUPÉRATION':[
+      {t:'EF',d:`🏃 Récup — ${Math.round(avg*.8)} km à ${footP}/km. Zéro intensité.`,k:.8},
+      {t:'EF',d:`🏃 Léger — ${Math.round(avg*.7)} km à ${footP}/km`,k:.7},
+      {t:'SL',d:`🏔️ SL modérée — ${Math.round(avg*1.2)} km à ${efP}/km`,k:1.2},
+      {t:'EF',d:`🏃 Footing + étirements — ${Math.round(avg*.6)} km à ${footP}/km`,k:.6},
+    ],
+    'COURSE':[{t:'EF',d:`🏃 Activation — 20' tranquille à ${footP}/km`,k:.3}]
+  };
+  let tpls=T[phase]||T['DÉVELOPPEMENT'];
+  if(pt==='progressif')tpls=tpls.map(t=>(t.t==='VMA'||t.t==='SEUIL')?{t:'EF',d:`🏃 EF + accélérations douces — ${Math.round(avg*t.k)} km à ${efP}/km`,k:t.k}:t);
+  // If this day is the SL day, force pick an SL template
+  let tp;
+  if(isSL){
+    const slTpl=tpls.find(t=>t.t==='SL');
+    tp=slTpl||tpls[si%tpls.length];
+  } else {
+    // Pick a non-SL template for other days
+    const nonSL=tpls.filter(t=>t.t!=='SL');
+    tp=(nonSL.length>0)?nonSL[si%nonSL.length]:tpls[si%tpls.length];
+  }
+  return{type:tp.t,desc:tp.d,km:Math.round(avg*tp.k)};
+}
+
+function displayPlan(weeks,vma,dist,cType,tw,pt){
+  document.getElementById('genSec').style.display='none';
+  document.getElementById('planOutput').style.display='block';
+  const totalKm=weeks.reduce((s,w)=>s+w.totalKm,0);
+  const pn={'ffa':'FFA','80-20':'80/20','lydiard':'Lydiard','hit':'HIT','progressif':'Progressif'};
+  const cn={'route':'Route','trail-court':'Trail Court','trail-long':'Trail Long','cross':'Cross','piste':'Piste','obstacles':'Obstacles'};
+  document.getElementById('planSummary').innerHTML=`
+    <div class="summary-card"><div class="val">${tw}</div><div class="lbl">Semaines</div></div>
+    <div class="summary-card"><div class="val">${dist} km</div><div class="lbl">${cn[cType]||cType}</div></div>
+    <div class="summary-card"><div class="val">${vma} km/h</div><div class="lbl">VMA</div></div>
+    <div class="summary-card"><div class="val">${totalKm} km</div><div class="lbl">Vol. total</div></div>
+    <div class="summary-card"><div class="val">${pn[pt]}</div><div class="lbl">Méthode</div></div>`;
+
+  // Print profile
+  const age=document.getElementById('age').value;const poids=document.getElementById('poids').value;
+  const sexe=document.getElementById('sexe').value;const annees=document.getElementById('anneesPratique').value;
+  const fumeur=document.getElementById('fumeur').value;const shoe=document.getElementById('shoeType');
+  const shoeLabel=shoe.options[shoe.selectedIndex].text;const brand=document.getElementById('shoeBrand').value;
+  const r5=document.getElementById('record5').value;const r10=document.getElementById('record10').value;
+  const rS=document.getElementById('recordSemi').value;const rM=document.getElementById('recordMarathon').value;
+  const obj=document.getElementById('courseObj').value;
+
+  let profileHtml=`<h3 style="font-family:'Oswald';font-size:1rem;margin-bottom:8px;text-transform:uppercase;letter-spacing:1px;color:var(--cuivre)">Profil du coureur</h3><table style="width:100%;font-size:.78rem">`;
+  const rows=[];
+  if(age)rows.push(['Âge',age+' ans']);
+  const taillePrint=document.getElementById('taille').value;
+  if(taillePrint)rows.push(['Taille',taillePrint+' cm']);
+  if(poids)rows.push(['Poids',poids+' kg']);
+  if(taillePrint&&poids){const hh=parseFloat(taillePrint)/100;const imcPrint=Math.round(parseFloat(poids)/(hh*hh)*10)/10;rows.push(['IMC',imcPrint+''])}
+  if(sexe)rows.push(['Sexe',sexe==='H'?'Homme':'Femme']);
+  if(annees)rows.push(['Pratique',annees+' ans']);
+  rows.push(['VMA',vma+' km/h']);
+  rows.push(['Fumeur',fumeur==='oui'?'Oui':fumeur==='ex'?'Ex-fumeur':'Non']);
+  rows.push(['Chaussures',shoeLabel+(brand?' — '+brand:'')]);
+  if(r5)rows.push(['Record 5 km',r5]);if(r10)rows.push(['Record 10 km',r10]);
+  if(rS)rows.push(['Record Semi',rS]);if(rM)rows.push(['Record Marathon',rM]);
+  if(obj)rows.push(['Objectif chrono',obj]);
+  rows.push(['Course',`${dist} km ${cn[cType]||cType}`]);
+  rows.push(['Plan',pn[pt]]);
+  rows.push(['Running',document.getElementById('runSessions').value+' séances/sem']);
+  const bk=document.getElementById('bikeSessions').value;if(bk!=='0')rows.push(['Vélo',bk+' séances/sem']);
+  const rf=document.getElementById('renfoSessions').value;if(rf!=='0')rows.push(['Renfo',rf+' séances/sem']);
+
+  // Contraintes
+  const dn=['Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi','Dimanche'];
+  const contrs=[];
+  for(let i=0;i<7;i++){const v=document.getElementById('dispo_'+i).value;if(v!=='ok'){const r=document.getElementById('reasonText_'+i).value;contrs.push(dn[i]+': '+(v==='ko'?'indispo':v)+(r?' ('+r+')':''))}}
+  if(contrs.length)rows.push(['Contraintes',contrs.join(' | ')]);
+
+  profileHtml+=rows.map(r=>`<tr><th style="padding:4px 8px;text-align:left;color:var(--cuivre-clair);font-family:'Oswald';font-weight:500;text-transform:uppercase;font-size:.7rem;letter-spacing:.5px;width:120px">${r[0]}</th><td style="padding:4px 8px">${r[1]}</td></tr>`).join('');
+  profileHtml+='</table>';
+  document.getElementById('printProfile').innerHTML=profileHtml;
+
+  // Paces
+  const paces=[{p:.60,l:'Récup',n:'60%'},{p:.65,l:'EF',n:'65%'},{p:.70,l:'EA',n:'70%'},{p:.75,l:'Seuil 1',n:'75%'},{p:.80,l:'Seuil 2',n:'80%'},{p:.85,l:'i3',n:'85%'},{p:.90,l:'i4',n:'90%'},{p:.95,l:'i5',n:'95%'},{p:1,l:'VMA',n:'100%'}];
+  document.getElementById('pacesGrid').innerHTML=paces.map(p=>`<div class="pace-card"><div class="pp">${p.n} VMA</div><div class="pv">${vmaToPace(vma,p.p)}/km</div><div class="pl">${p.l} · ${vmaToSpeed(vma,p.p)} km/h</div></div>`).join('');
+
+  // Allures spécifiques course (AS / SPE)
+  const spePaces=[
+    {code:'AS42 / SPE42',name:'Allure Marathon',pMin:.75,pMax:.80,color:'#e74c3c'},
+    {code:'AS21 / SPE21',name:'Allure Semi',pMin:.80,pMax:.85,color:'#FF9800'},
+    {code:'AS10 / SPE10',name:'Allure 10 km',pMin:.85,pMax:.90,color:'var(--cuivre)'},
+    {code:'AS5 / SPE5',name:'Allure 5 km',pMin:.92,pMax:.95,color:'var(--success)'},
+  ];
+  document.getElementById('spePacesGrid').innerHTML=spePaces.map(s=>{
+    const paceMin=vmaToPace(vma,s.pMax);
+    const paceMax=vmaToPace(vma,s.pMin);
+    const speedMin=vmaToSpeed(vma,s.pMin);
+    const speedMax=vmaToSpeed(vma,s.pMax);
+    return`<div class="pace-card" style="border-left:3px solid ${s.color}"><div class="pp" style="color:${s.color}">${s.code}</div><div class="pv">${paceMin} — ${paceMax}/km</div><div class="pl">${s.name} · ${speedMin}-${speedMax} km/h</div></div>`;
+  }).join('');
+
+  const container=document.getElementById('weeksContainer');container.innerHTML='';
+  const sd=new Date();sd.setHours(0,0,0,0);const dow=sd.getDay();sd.setDate(sd.getDate()+(dow===0?1:dow===1?0:8-dow));
+
+  weeks.forEach((w,idx)=>{
+    const ws=new Date(sd);ws.setDate(ws.getDate()+idx*7);const we=new Date(ws);we.setDate(we.getDate()+6);
+    const ds=`${ws.getDate()}/${ws.getMonth()+1} — ${we.getDate()}/${we.getMonth()+1}`;
+    const io=idx<2;const bl=document.createElement('div');bl.className='week-block';
+    bl.innerHTML=`
+      <div class="week-header" onclick="tW(this)">
+        <h3>S${w.num} — ${w.phase} <span style="font-weight:400;font-size:.73rem;color:var(--text-muted);margin-left:5px">${ds}</span></h3>
+        <div style="display:flex;align-items:center;gap:8px"><span class="wv">${w.totalKm} km</span><span class="chev ${io?'open':''}">▼</span></div>
+      </div>
+      <div class="week-body ${io?'open':''}">
+        ${w.days.map(d=>`<div class="day-row"><div class="day-name">${d.day}</div><div class="day-content">${d.sessionType!=='REPOS'?`<div class="st">${d.sessionType}</div>`:''}
+        <div class="${d.sessionType==='REPOS'?'rest-day':''}">${d.content.replace(/\n/g,'<br>')}</div></div><div class="day-km">${d.km>0?d.km+' km':'—'}</div></div>`).join('')}
+      </div>`;
+    container.appendChild(bl);
+  });
+  window._pd=weeks;
+  generateAdvice(vma,dist,cType,tw,pt,totalKm);
+  notify('Plan généré !');
+}
+
+// ==================== GLOBAL ADVICE ====================
+function generateAdvice(vma,dist,cType,tw,pt,totalKm){
+  const age=parseInt(document.getElementById('age').value)||0;
+  const poids=parseFloat(document.getElementById('poids').value)||0;
+  const taille=parseFloat(document.getElementById('taille').value)||0;
+  const sexe=document.getElementById('sexe').value;
+  const annees=parseInt(document.getElementById('anneesPratique').value)||0;
+  const fumeur=document.getElementById('fumeur').value;
+  const runSess=parseInt(document.getElementById('runSessions').value);
+  const runVol=parseInt(document.getElementById('runVolume').value)||30;
+  const objChrono=document.getElementById('courseObj').value.trim();
+  const r5=document.getElementById('record5').value.trim();
+  const r10=document.getElementById('record10').value.trim();
+  const rSemi=document.getElementById('recordSemi').value.trim();
+  const rMarathon=document.getElementById('recordMarathon').value.trim();
+  const health=[];document.querySelectorAll('#tab-sante input[type="checkbox"]:checked').forEach(c=>health.push(c.value));
+  const isReprise=health.includes('reprise');
+  const isTrail=cType.includes('trail');
+  const imc=taille>0&&poids>0?poids/((taille/100)*(taille/100)):0;
+
+  const items=[];
+  let score=50; // base score 0-100
+
+  // 1. WEEKS ANALYSIS
+  if(dist>=42&&tw<12){items.push({icon:'⚠️',cls:'danger',text:`Seulement ${tw} semaines pour un marathon — c'est très court. La plupart des plans marathon préconisent 14 à 20 semaines. Le risque de blessure est élevé et l'affûtage sera limité.`});score-=15}
+  else if(dist>=42&&tw<16){items.push({icon:'⏰',cls:'warning',text:`${tw} semaines pour un marathon, c'est jouable mais serré. L'idéal serait 16-20 semaines. Sois très rigoureux sur chaque séance.`});score-=5}
+  else if(dist>=42&&tw>=16){items.push({icon:'✅',cls:'positive',text:`${tw} semaines de préparation pour un marathon — très bon timing. Tu as le temps de bien construire ta base et d'affûter sereinement.`});score+=5}
+  else if(dist>=21&&tw<8){items.push({icon:'⚠️',cls:'warning',text:`${tw} semaines pour un semi, c'est court. 10-12 semaines seraient préférables.`});score-=8}
+  else if(dist>=21&&tw>=10){items.push({icon:'✅',cls:'positive',text:`${tw} semaines pour un semi — timing parfait pour une préparation solide.`});score+=5}
+  else if(tw>=6){items.push({icon:'✅',cls:'positive',text:`${tw} semaines de préparation — bon délai pour un ${dist} km.`});score+=3}
+
+  // 2. VMA vs DISTANCE
+  const pctVma=dist<=5?0.93:dist<=10?0.88:dist<=21.5?0.83:0.78;
+  const estSpeed=vma*pctVma;
+  const estTimeSec=(dist/estSpeed)*3600;
+  const estH=Math.floor(estTimeSec/3600);const estM=Math.floor((estTimeSec%3600)/60);
+  const estTimeStr=estH>0?`${estH}h${estM.toString().padStart(2,'0')}`:`${estM} min`;
+  items.push({icon:'📊',cls:'neutral',text:`Avec ta VMA de ${vma} km/h, ton temps théorique sur ${dist} km est d'environ ${estTimeStr}. ${objChrono?'Ton objectif de '+objChrono+' est '+(parseTime(objChrono)>0&&parseTime(objChrono)<estTimeSec*0.92?'très ambitieux — il faudra progresser significativement.':parseTime(objChrono)>estTimeSec*1.1?'prudent et réaliste, tu peux peut-être viser mieux !':'cohérent avec ton niveau actuel.'):''}`.trim()});
+
+  // 3. VOLUME
+  if(dist>=42&&runVol<40){items.push({icon:'⚠️',cls:'warning',text:`Volume hebdo de ${runVol} km pour un marathon — c'est bas. Vise 50-70 km/sem en pic. Augmente progressivement de 10% max par semaine.`});score-=8}
+  else if(dist>=42&&runVol>=60){items.push({icon:'✅',cls:'positive',text:`Volume de ${runVol} km/sem — solide base pour un marathon. Tu es dans la zone de préparation sérieuse.`});score+=5}
+  else if(dist>=21&&runVol<25){items.push({icon:'⚠️',cls:'warning',text:`${runVol} km/sem pour un semi, c'est un peu juste. 30-40 km en pic serait idéal.`});score-=5}
+  if(runSess>=5){items.push({icon:'✅',cls:'positive',text:`${runSess} séances/sem — excellente fréquence d'entraînement. La régularité est la clé.`});score+=4}
+  else if(runSess<=2){items.push({icon:'⏰',cls:'warning',text:`${runSess} séances/sem — un minimum. 3 séances permettraient de mieux assimiler les différentes qualités.`});score-=5}
+
+  // 4. EXPERIENCE
+  if(annees>=10){items.push({icon:'🏆',cls:'positive',text:`${annees} ans de pratique — ton expérience est un vrai atout. Tu connais ton corps et tes limites.`});score+=6}
+  else if(annees>=5){items.push({icon:'✅',cls:'positive',text:`${annees} ans de pratique — bonne expérience. Les fondations sont là.`});score+=3}
+  else if(annees<=1&&dist>=21){items.push({icon:'⚠️',cls:'warning',text:`Seulement ${annees||'<1'} an de pratique pour un ${dist>=42?'marathon':'semi'} — sois très progressif. Les tendons et articulations ont besoin de 2-3 ans pour s'adapter pleinement.`});score-=10}
+
+  // 5. HEALTH
+  if(health.length>0){
+    items.push({icon:'❤️',cls:'warning',text:`Pathologies signalées (${health.join(', ')}). Le plan en tient compte avec un volume adapté. Écoute ton corps : toute douleur anormale = arrêt et consultation.`});score-=health.length*2;
+  }
+  if(isReprise){items.push({icon:'🔄',cls:'warning',text:`Reprise après arrêt — la progression doit être très graduelle. Les 4 premières semaines sont cruciales : ne force jamais. Le cardio revient vite, mais les tendons et os prennent plus de temps.`});score-=5}
+
+  // 6. IMC
+  if(imc>0){
+    if(imc>=18.5&&imc<=22){items.push({icon:'⚖️',cls:'positive',text:`IMC de ${Math.round(imc*10)/10} — profil morphologique idéal pour la course à pied. Excellent rapport poids/puissance.`});score+=4}
+    else if(imc>25){items.push({icon:'⚖️',cls:'warning',text:`IMC de ${Math.round(imc*10)/10} — le surpoids augmente les contraintes articulaires. Chaque kilo perdu = environ 2-3 sec/km plus vite sur marathon. Privilégie des chaussures bien amorties.`});score-=5}
+  }
+
+  // 7. SMOKER
+  if(fumeur==='oui'){items.push({icon:'🚭',cls:'danger',text:`Le tabac réduit ta VO2max de 5 à 10%. L'arrêt, même récent, améliorerait rapidement tes performances. En 3 mois sans tabac, ta capacité respiratoire progresse significativement.`});score-=10}
+
+  // 8. AGE
+  if(age>50){items.push({icon:'🎂',cls:'neutral',text:`À ${age} ans, la récupération est plus lente. Accorde-toi davantage de jours de repos et ne néglige pas le sommeil (8h minimum). Le renforcement musculaire est encore plus important pour protéger tes articulations.`})}
+  else if(age>40){items.push({icon:'🎂',cls:'neutral',text:`À ${age} ans, l'hydratation et le sommeil sont tes meilleurs alliés pour la récupération. N'hésite pas à ajouter 1 jour de repos si tu sens de la fatigue accumulée.`})}
+
+  // 9. TRAIL SPECIFIC
+  if(isTrail){items.push({icon:'🏔️',cls:'neutral',text:`Course trail : pense à inclure du dénivelé dans tes sorties longues. Entraîne-toi en descente (c'est là que les cuisses lâchent). Les bâtons peuvent être un vrai plus au-delà de 30 km avec D+.`})}
+
+  // 10. PLAN TYPE
+  if(pt==='progressif'&&dist>=42){items.push({icon:'💡',cls:'warning',text:`Plan progressif + marathon = combinaison risquée. Ce plan est conçu pour la reprise/débutant. Si tu as l'expérience, passe à un plan 80/20 ou FFA.`});score-=5}
+  if(pt==='hit'&&dist>=42){items.push({icon:'💡',cls:'warning',text:`Plan HIT + marathon : le volume réduit peut être insuffisant pour préparer le corps aux 42 km. Assure-toi d'avoir une base aérobie solide par ailleurs.`});score-=3}
+
+  // 11. RECORDS COHERENCE
+  if(r10&&rSemi){
+    const t10=parseTime(r10);const tSemi=parseTime(rSemi);
+    if(t10>0&&tSemi>0){
+      const ratio=tSemi/t10;
+      if(ratio<1.9){items.push({icon:'🤔',cls:'warning',text:`Ton ratio semi/10km (${Math.round(ratio*100)/100}) est inhabituel — vérifies que tes records sont corrects. Ratio normal : 2.08-2.15.`})}
+    }
+  }
+
+  // 12. MENTAL SCORE
+  const mentalSc=typeof getMentalScore==='function'?getMentalScore():-1;
+  if(mentalSc>=0){
+    const mentalPct=Math.round((mentalSc/25)*100);
+    if(mentalPct>=80){items.push({icon:'🧠',cls:'positive',text:`Score mental ${mentalPct}/100 — confiance et motivation solides. Le mental est un vrai atout.`});score+=5}
+    else if(mentalPct>=50){items.push({icon:'🧠',cls:'neutral',text:`Score mental ${mentalPct}/100 — correct. Travaille la visualisation et le mantra pour renforcer ta confiance.`})}
+    else{items.push({icon:'🧠',cls:'warning',text:`Score mental ${mentalPct}/100 — fragile. Utilise la boîte à outils mentale (onglet Mental) avant la course. Le mental peut faire la différence entre finir et abandonner.`});score-=5}
+  }
+
+  // 13. SLEEP
+  const sleepEl=document.getElementById('sleepResult');
+  if(sleepEl&&sleepEl.style.display!=='none'){
+    const sleepMatch=sleepEl.innerHTML.match(/(\d+)\/100/);
+    if(sleepMatch){
+      const sleepSc=parseInt(sleepMatch[1]);
+      if(sleepSc>=70){items.push({icon:'😴',cls:'positive',text:`Score sommeil ${sleepSc}/100 — bonne récupération. Le sommeil est le facteur n°1 de la performance.`});score+=4}
+      else if(sleepSc>=45){items.push({icon:'😴',cls:'warning',text:`Score sommeil ${sleepSc}/100 — à améliorer. Chaque heure de dette = -10% de performance. Vise 7h30 minimum.`});score-=3}
+      else{items.push({icon:'😴',cls:'danger',text:`Score sommeil ${sleepSc}/100 — insuffisant pour supporter un entraînement sérieux. Risque de blessure et surentraînement.`});score-=8}
+    }
+  }
+
+  // 14. RECORD FRESHNESS
+  const bestRecord=r10||r5||rSemi||rMarathon;
+  const bestYear=r10?document.getElementById('record10Year')?.value:r5?document.getElementById('record5Year')?.value:rSemi?document.getElementById('recordSemiYear')?.value:rMarathon?document.getElementById('recordMarathonYear')?.value:'';
+  if(bestRecord&&bestYear){
+    const recAge=bestYear==='avant'?12:bestYear?2026-parseInt(bestYear):0;
+    if(recAge>5){items.push({icon:'📅',cls:'warning',text:`Ton meilleur record date de ${bestYear} (${recAge} ans). Les projections sont à prendre avec prudence — ton niveau actuel peut être très différent. Un test VMA récent serait plus fiable.`});score-=4}
+    else if(recAge<=1){items.push({icon:'📅',cls:'positive',text:`Record récent (${bestYear}) — excellente base pour les projections de performance.`});score+=2}
+  }
+
+  // 15. CROSS-TRAINING (vélo + renfo)
+  const bikeS=parseFloat(document.getElementById('bikeSessions')?.value)||0;
+  const renfoS=parseFloat(document.getElementById('renfoSessions')?.value)||0;
+  if(bikeS>=2&&renfoS>=2){items.push({icon:'🚴',cls:'positive',text:`Vélo (${bikeS}h/sem) + renfo (${renfoS}h/sem) — excellent complément. Le cross-training protège des blessures et améliore l'endurance.`});score+=4}
+  else if(bikeS+renfoS>=2){items.push({icon:'🚴',cls:'neutral',text:`Cross-training détecté (${bikeS}h vélo + ${renfoS}h renfo/sem). Le renforcement musculaire est particulièrement important pour le coureur.`});score+=2}
+  else if(dist>=42&&renfoS<1){items.push({icon:'🏋️',cls:'warning',text:`Pas de renforcement musculaire pour un marathon — risque accru de blessure. 2 séances de 30 min/sem de PPG font une vraie différence.`});score-=3}
+
+  // FINAL SCORE
+  score=Math.max(5,Math.min(95,score));
+  let verdict,verdictColor,verdictIcon;
+  if(score>=75){verdict='OBJECTIF RÉALISTE';verdictColor='var(--success)';verdictIcon='🟢'}
+  else if(score>=55){verdict='OBJECTIF AMBITIEUX MAIS JOUABLE';verdictColor='var(--cuivre)';verdictIcon='🟡'}
+  else if(score>=35){verdict='OBJECTIF EXIGEANT — PRUDENCE';verdictColor='#FF9800';verdictIcon='🟠'}
+  else{verdict='OBJECTIF TRÈS AMBITIEUX — VIGILANCE';verdictColor='var(--danger)';verdictIcon='🔴'}
+
+  const gaugeColor=score>=75?'linear-gradient(90deg,#4CAF50,#8BC34A)':score>=55?'linear-gradient(90deg,var(--cuivre),var(--cuivre-clair))':score>=35?'linear-gradient(90deg,#FF9800,#FFC107)':'linear-gradient(90deg,#f44336,#FF5722)';
+
+  const adviceEl=document.getElementById('planAdvice');
+  adviceEl.style.display='block';
+  adviceEl.innerHTML=`
+    <div class="advice-box">
+      <div class="advice-header">
+        <span class="advice-icon">${verdictIcon}</span>
+        <span class="advice-verdict" style="color:${verdictColor}">${verdict}</span>
+      </div>
+      <div class="advice-body">
+        <div class="advice-gauge">
+          <div class="ag-label">Indice de faisabilité</div>
+          <div class="ag-bar"><div class="ag-fill" style="width:${score}%;background:${gaugeColor}"></div></div>
+          <span style="font-family:'Oswald';font-size:1.4rem;font-weight:700;color:${verdictColor}">${score}/100</span>
+        </div>
+
+        <div style="margin:16px 0;padding:14px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:8px">
+          <h4 style="font-family:'Oswald';font-size:.82rem;color:var(--cuivre);text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px">📐 Comment cet indice est-il calculé ?</h4>
+          <p style="font-size:.78rem;color:var(--text-muted);line-height:1.6;margin-bottom:8px">L'indice de faisabilité croise <strong style="color:var(--blanc-casse)">15 critères</strong> issus de la science de l'entraînement et de la nutrition sportive. Il part d'une base de 50/100, puis gagne ou perd des points selon ton profil :</p>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:6px;font-size:.72rem">
+            <div style="padding:6px 8px;background:rgba(255,255,255,.02);border-radius:4px"><strong style="color:var(--cuivre)">1.</strong> <strong>Délai vs distance</strong> — Le nombre de semaines est-il suffisant ? (±15 pts)</div>
+            <div style="padding:6px 8px;background:rgba(255,255,255,.02);border-radius:4px"><strong style="color:var(--cuivre)">2.</strong> <strong>VMA vs objectif</strong> — Ton chrono cible est-il cohérent avec ta VMA ? (info)</div>
+            <div style="padding:6px 8px;background:rgba(255,255,255,.02);border-radius:4px"><strong style="color:var(--cuivre)">3.</strong> <strong>Volume d'entraînement</strong> — Tes km/semaine sont-ils suffisants pour ta distance ? (±8 pts)</div>
+            <div style="padding:6px 8px;background:rgba(255,255,255,.02);border-radius:4px"><strong style="color:var(--cuivre)">4.</strong> <strong>Fréquence</strong> — Nombre de séances/semaine vs minimum recommandé (±5 pts)</div>
+            <div style="padding:6px 8px;background:rgba(255,255,255,.02);border-radius:4px"><strong style="color:var(--cuivre)">5.</strong> <strong>Expérience</strong> — Années de pratique : facteur protecteur ou risque (±10 pts)</div>
+            <div style="padding:6px 8px;background:rgba(255,255,255,.02);border-radius:4px"><strong style="color:var(--cuivre)">6.</strong> <strong>Santé</strong> — Pathologies signalées, pénalité par condition (-2 pts chacune)</div>
+            <div style="padding:6px 8px;background:rgba(255,255,255,.02);border-radius:4px"><strong style="color:var(--cuivre)">7.</strong> <strong>IMC</strong> — Rapport poids/taille et impact sur la performance (±5 pts)</div>
+            <div style="padding:6px 8px;background:rgba(255,255,255,.02);border-radius:4px"><strong style="color:var(--cuivre)">8.</strong> <strong>Tabac</strong> — VO2max réduite de 5-10% chez le fumeur (-10 pts)</div>
+            <div style="padding:6px 8px;background:rgba(255,255,255,.02);border-radius:4px"><strong style="color:var(--cuivre)">9.</strong> <strong>Âge</strong> — Récupération et adaptation selon la tranche d'âge (info)</div>
+            <div style="padding:6px 8px;background:rgba(255,255,255,.02);border-radius:4px"><strong style="color:var(--cuivre)">10.</strong> <strong>Type de plan vs distance</strong> — Cohérence du plan choisi (±5 pts)</div>
+            <div style="padding:6px 8px;background:rgba(255,255,255,.02);border-radius:4px"><strong style="color:var(--cuivre)">11.</strong> <strong>Cohérence des records</strong> — Ratio entre tes temps de référence (info)</div>
+            <div style="padding:6px 8px;background:rgba(255,255,255,.02);border-radius:4px"><strong style="color:var(--cuivre)">12.</strong> <strong>Score mental</strong> — Confiance, stress, motivation, résilience (±5 pts)</div>
+            <div style="padding:6px 8px;background:rgba(255,255,255,.02);border-radius:4px"><strong style="color:var(--cuivre)">13.</strong> <strong>Score sommeil</strong> — Durée, qualité, régularité (±8 pts)</div>
+            <div style="padding:6px 8px;background:rgba(255,255,255,.02);border-radius:4px"><strong style="color:var(--cuivre)">14.</strong> <strong>Fraîcheur du record</strong> — Un record récent est plus fiable qu'un ancien (±4 pts)</div>
+            <div style="padding:6px 8px;background:rgba(255,255,255,.02);border-radius:4px"><strong style="color:var(--cuivre)">15.</strong> <strong>Cross-training</strong> — Vélo et renfo protègent des blessures (±4 pts)</div>
+          </div>
+          <p style="font-size:.7rem;color:var(--text-muted);margin-top:8px;font-style:italic">Score ≥ 75 = réaliste · 55-74 = ambitieux mais jouable · 35-54 = exigeant · &lt; 35 = très ambitieux. Modèles utilisés : Riegel, Mercier, Cameron + données Garmin Full Potential.</p>
+        </div>
+
+        <h4 style="font-family:'Oswald';font-size:.9rem;color:var(--cuivre);text-transform:uppercase;letter-spacing:.5px;margin:18px 0 10px">Analyse détaillée de ton profil</h4>
+        ${items.map(it=>`<div class="advice-item ${it.cls}"><span class="ai-icon">${it.icon}</span><span>${it.text}</span></div>`).join('')}
+        <div style="margin-top:18px;padding:14px;background:var(--cuivre-glow);border-radius:6px;border:1px solid var(--border-subtle)">
+          <p style="font-family:'Oswald';font-size:.85rem;color:var(--cuivre);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">🏔️ Derniers conseils</p>
+          <p style="font-size:.8rem;line-height:1.6;color:var(--blanc-casse)">
+            ${score>=75?'Tu as un profil solide pour cet objectif. Reste régulier, respecte les jours de repos et ne néglige pas l\'alimentation les dernières semaines. La confiance est ton meilleur allié le jour J — tu es prêt pour ça.'
+            :score>=55?'Ton objectif est ambitieux mais à ta portée. Les clés : ne rate aucune sortie longue, respecte les semaines de récupération, et sois intransigeant sur le sommeil et l\'hydratation. Chaque séance compte, mais chaque jour de repos aussi.'
+            :score>=35?'Cet objectif va demander de la rigueur et de l\'écoute de ton corps. Privilégie la régularité au volume. Si tu sens des signaux de fatigue ou de douleur, n\'hésite pas à alléger. Mieux vaut arriver au départ en forme qu\'épuisé par l\'entraînement.'
+            :'Cet objectif est très exigeant par rapport à ton profil actuel. Envisage de revoir ta cible (distance ou chrono) ou de décaler la date pour te laisser plus de temps. La progression en course à pied se construit sur des mois, pas des semaines. Sois patient, c\'est la meilleure qualité d\'un coureur.'}
+          </p>
+          <p style="font-size:.75rem;color:var(--text-muted);margin-top:8px;font-style:italic">« Le monde est à ceux qui osent courir hors des sentiers. » — Run On The Wild Side</p>
+        </div>
+      </div>
+    </div>
+  `;
+}
+function tW(el){el.nextElementSibling.classList.toggle('open');el.querySelector('.chev').classList.toggle('open')}
+
+function exportCSV(){
+  if(!window._pd)return;let csv='Semaine;Phase;Jour;Type;Contenu;Km\n';
+  window._pd.forEach(w=>w.days.forEach(d=>{csv+=`${w.num};${w.phase};${d.day};${d.sessionType};"${d.content.replace(/\n/g,' | ').replace(/"/g,"'")}";${d.km}\n`}));
+  const a=document.createElement('a');a.href=URL.createObjectURL(new Blob(['\ufeff'+csv],{type:'text/csv;charset=utf-8;'}));
+  a.download='plan_ROTWS.csv';a.click();notify('CSV exporté !');
+}
+
+// FOOD SELECTOR
+const foodData={
+  pdj:[
+    {n:'Flocons d\'avoine',cat:'gluc',score:3,icon:'🥣'},
+    {n:'Pain complet',cat:'gluc',score:3,icon:'🍞'},
+    {n:'Pain blanc',cat:'gluc',score:1,icon:'🥖'},
+    {n:'Céréales sucrées',cat:'gluc',score:0,icon:'🥣'},
+    {n:'Muesli / Granola',cat:'gluc',score:2,icon:'🥜'},
+    {n:'Banane',cat:'fruit',score:3,icon:'🍌'},
+    {n:'Fruits frais',cat:'fruit',score:3,icon:'🍎'},
+    {n:'Compote',cat:'fruit',score:2,icon:'🍏'},
+    {n:'Jus de fruits',cat:'fruit',score:1,icon:'🧃'},
+    {n:'Yaourt nature',cat:'prot',score:3,icon:'🥛'},
+    {n:'Fromage blanc',cat:'prot',score:3,icon:'🥛'},
+    {n:'Œufs',cat:'prot',score:3,icon:'🥚'},
+    {n:'Jambon',cat:'prot',score:2,icon:'🥓'},
+    {n:'Beurre',cat:'lipid',score:1,icon:'🧈'},
+    {n:'Miel',cat:'gluc',score:2,icon:'🍯'},
+    {n:'Confiture',cat:'gluc',score:1,icon:'🍓'},
+    {n:'Amandes / Noix',cat:'lipid',score:3,icon:'🥜'},
+    {n:'Café',cat:'boisson',score:1,icon:'☕'},
+    {n:'Thé vert',cat:'boisson',score:2,icon:'🍵'},
+    {n:'Lait chocolaté',cat:'prot',score:2,icon:'🥛'},
+    {n:'Viennoiserie',cat:'gluc',score:0,icon:'🥐'},
+    {n:'Rien (je saute le pdj)',cat:'rien',score:-2,icon:'⛔'},
+  ],
+  colmatin:[
+    {n:'Banane',cat:'fruit',score:3,icon:'🍌'},
+    {n:'Amandes',cat:'lipid',score:3,icon:'🥜'},
+    {n:'Barre de céréales',cat:'gluc',score:1,icon:'🍫'},
+    {n:'Fruit frais',cat:'fruit',score:3,icon:'🍎'},
+    {n:'Compote',cat:'fruit',score:2,icon:'🍏'},
+    {n:'Yaourt',cat:'prot',score:3,icon:'🥛'},
+    {n:'Biscuits',cat:'gluc',score:0,icon:'🍪'},
+    {n:'Fruits secs',cat:'fruit',score:3,icon:'🍇'},
+    {n:'Rien',cat:'rien',score:0,icon:'—'},
+  ],
+  dej:[
+    {n:'Riz / Pâtes / Quinoa',cat:'gluc',score:3,icon:'🍚'},
+    {n:'Pommes de terre',cat:'gluc',score:2,icon:'🥔'},
+    {n:'Pain',cat:'gluc',score:2,icon:'🥖'},
+    {n:'Légumes verts',cat:'legume',score:3,icon:'🥦'},
+    {n:'Salade / Crudités',cat:'legume',score:3,icon:'🥗'},
+    {n:'Poulet / Dinde',cat:'prot',score:3,icon:'🍗'},
+    {n:'Poisson',cat:'prot',score:3,icon:'🐟'},
+    {n:'Viande rouge',cat:'prot',score:2,icon:'🥩'},
+    {n:'Œufs',cat:'prot',score:3,icon:'🥚'},
+    {n:'Légumineuses',cat:'prot',score:3,icon:'🫘'},
+    {n:'Fromage',cat:'lipid',score:1,icon:'🧀'},
+    {n:'Huile d\'olive / Colza',cat:'lipid',score:3,icon:'🫒'},
+    {n:'Fruit / Compote',cat:'fruit',score:3,icon:'🍎'},
+    {n:'Yaourt',cat:'prot',score:2,icon:'🥛'},
+    {n:'Fast-food / Sandwich',cat:'gluc',score:0,icon:'🍔'},
+    {n:'Plat en sauce',cat:'lipid',score:0,icon:'🍲'},
+    {n:'Eau',cat:'boisson',score:3,icon:'💧'},
+    {n:'Soda',cat:'boisson',score:-1,icon:'🥤'},
+  ],
+  colapm:[
+    {n:'Banane',cat:'fruit',score:3,icon:'🍌'},
+    {n:'Amandes / Noix',cat:'lipid',score:3,icon:'🥜'},
+    {n:'Fruit frais',cat:'fruit',score:3,icon:'🍎'},
+    {n:'Pain d\'épices',cat:'gluc',score:2,icon:'🍞'},
+    {n:'Barre protéinée',cat:'prot',score:2,icon:'💪'},
+    {n:'Gâteau / Biscuit',cat:'gluc',score:0,icon:'🍰'},
+    {n:'Chocolat noir',cat:'lipid',score:2,icon:'🍫'},
+    {n:'Fruits secs',cat:'fruit',score:3,icon:'🍇'},
+    {n:'Rien',cat:'rien',score:0,icon:'—'},
+  ],
+  diner:[
+    {n:'Riz / Pâtes / Semoule',cat:'gluc',score:3,icon:'🍚'},
+    {n:'Soupe de légumes',cat:'legume',score:3,icon:'🥣'},
+    {n:'Légumes cuits',cat:'legume',score:3,icon:'🥦'},
+    {n:'Salade',cat:'legume',score:3,icon:'🥗'},
+    {n:'Poisson',cat:'prot',score:3,icon:'🐟'},
+    {n:'Poulet / Dinde',cat:'prot',score:3,icon:'🍗'},
+    {n:'Œufs',cat:'prot',score:2,icon:'🥚'},
+    {n:'Tofu / Tempeh',cat:'prot',score:3,icon:'🌱'},
+    {n:'Fromage',cat:'lipid',score:1,icon:'🧀'},
+    {n:'Yaourt / Fromage blanc',cat:'prot',score:2,icon:'🥛'},
+    {n:'Fruit / Compote',cat:'fruit',score:2,icon:'🍎'},
+    {n:'Pain',cat:'gluc',score:2,icon:'🥖'},
+    {n:'Pizza / Burger',cat:'gluc',score:0,icon:'🍕'},
+    {n:'Tisane',cat:'boisson',score:2,icon:'🍵'},
+    {n:'Alcool',cat:'boisson',score:-2,icon:'🍷'},
+    {n:'Eau',cat:'boisson',score:2,icon:'💧'},
+  ]
+};
+
+function buildFoodSelectors(){
+  Object.keys(foodData).forEach(meal=>{
+    const el=document.getElementById('food-'+meal);
+    if(!el)return;
+    el.innerHTML=foodData[meal].map((f,i)=>`<div class="food-chip" data-meal="${meal}" data-idx="${i}" onclick="toggleFood(this)">${f.icon} ${f.n}</div>`).join('');
+  });
+}
+function toggleFood(el){el.classList.toggle('selected')}
+
+function analyzeDiet(){
+  const selected={};
+  const counts={gluc:0,prot:0,lipid:0,fruit:0,legume:0,boisson:0,rien:0};
+  let totalItems=0;
+
+  Object.keys(foodData).forEach(meal=>{
+    selected[meal]=[];
+    document.querySelectorAll(`#food-${meal} .food-chip.selected`).forEach(chip=>{
+      const idx=parseInt(chip.dataset.idx);
+      const food=foodData[meal][idx];
+      selected[meal].push(food);
+      counts[food.cat]=(counts[food.cat]||0)+1;
+      totalItems++;
+    });
+  });
+
+  if(totalItems<3){notify('Sélectionne au moins tes repas principaux !');return}
+
+  // ===== ROBUST SCORING SYSTEM =====
+  // Based on sports nutrition science (Auger/Delong, GLP 4-2-1 rule)
+  // Score starts at 0, accumulates points for good habits, penalties for bad ones
+  // Max theoretical: 100. Each check has a specific weight.
+
+  let score=0;
+  const checks=[];
+
+  // CHECK 1: Petit-déjeuner present (30-40% of daily intake!) — 15 points
+  const hasPdj=selected.pdj&&selected.pdj.length>0&&!selected.pdj.some(f=>f.n.includes('Rien'));
+  if(hasPdj){score+=15;checks.push({ok:true,text:'Petit-déjeuner pris — essentiel (30-40% de l\'apport journalier)',pts:'+15'})}
+  else{checks.push({ok:false,text:'Petit-déjeuner absent ou sauté — c\'est le repas le plus important du sportif',pts:'0/15'})}
+
+  // CHECK 2: Glucides complexes (féculents) présents — 15 points
+  // Need at minimum 3 glucides sources across the day for a runner
+  if(counts.gluc>=4){score+=15;checks.push({ok:true,text:`${counts.gluc} sources de glucides — excellent apport en carburant (règle GLP : 55% de l\'apport)`,pts:'+15'})}
+  else if(counts.gluc>=2){score+=8;checks.push({ok:true,text:`${counts.gluc} sources de glucides — correct mais vise 4+ pour un sportif d\'endurance`,pts:'+8'})}
+  else{score+=2;checks.push({ok:false,text:`Seulement ${counts.gluc} source(s) de glucides — très insuffisant. Les glucides sont le carburant n°1 du coureur.`,pts:'2/15'})}
+
+  // CHECK 3: Protéines — 12 points
+  if(counts.prot>=3){score+=12;checks.push({ok:true,text:`${counts.prot} sources de protéines — bon apport pour la récupération musculaire`,pts:'+12'})}
+  else if(counts.prot>=2){score+=7;checks.push({ok:true,text:`${counts.prot} sources de protéines — suffisant mais pourrait être amélioré`,pts:'+7'})}
+  else{score+=2;checks.push({ok:false,text:`Seulement ${counts.prot} source(s) de protéines — risque de mauvaise récupération musculaire`,pts:'2/12'})}
+
+  // CHECK 4: Fruits (min 3/jour recommandé, idéal 5) — 12 points
+  if(counts.fruit>=3){score+=12;checks.push({ok:true,text:`${counts.fruit} portions de fruits — excellent apport en vitamines et antioxydants`,pts:'+12'})}
+  else if(counts.fruit>=2){score+=7;checks.push({ok:true,text:`${counts.fruit} portions de fruits — correct, vise 3+ pour les vitamines C et E`,pts:'+7'})}
+  else{score+=2;checks.push({ok:false,text:`Seulement ${counts.fruit} portion(s) de fruits — en dessous du minimum recommandé (5 fruits et légumes/jour)`,pts:'2/12'})}
+
+  // CHECK 5: Légumes (min 2/jour) — 12 points
+  if(counts.legume>=3){score+=12;checks.push({ok:true,text:`${counts.legume} portions de légumes — parfait pour les fibres et les minéraux`,pts:'+12'})}
+  else if(counts.legume>=2){score+=7;checks.push({ok:true,text:`${counts.legume} portions de légumes — bien, les fibres favorisent un bon transit`,pts:'+7'})}
+  else{score+=2;checks.push({ok:false,text:`Seulement ${counts.legume} portion(s) de légumes — insuffisant. Les fibres sont essentielles au sportif.`,pts:'2/12'})}
+
+  // CHECK 6: Hydratation — 8 points
+  if(counts.boisson>=2){score+=8;checks.push({ok:true,text:`${counts.boisson} sources d\'hydratation identifiées — rappel : 35 ml × poids(kg) = besoin/jour`,pts:'+8'})}
+  else if(counts.boisson>=1){score+=4;checks.push({ok:true,text:`${counts.boisson} source d\'hydratation — insuffisant, boire 1,5-2,5L/jour minimum`,pts:'+4'})}
+  else{checks.push({ok:false,text:'Aucune source d\'hydratation signalée — l\'eau est le besoin n°1 du sportif',pts:'0/8'})}
+
+  // CHECK 7: Diversité des repas — 8 points
+  const mealsWithFood=['pdj','dej','diner'].filter(m=>selected[m]&&selected[m].length>0).length;
+  if(mealsWithFood>=3){score+=8;checks.push({ok:true,text:'3 repas principaux renseignés — bonne répartition sur la journée',pts:'+8'})}
+  else if(mealsWithFood>=2){score+=4;checks.push({ok:true,text:`${mealsWithFood} repas principaux — il en manque. Ne saute pas de repas.`,pts:'+4'})}
+  else{checks.push({ok:false,text:'Trop peu de repas renseignés — 3 repas + 2 collations sont recommandés',pts:'0/8'})}
+
+  // CHECK 8: Collations (matin + après-midi) — 6 points
+  const hasColMatin=selected.colmatin&&selected.colmatin.length>0&&!selected.colmatin.some(f=>f.n==='Rien');
+  const hasColApm=selected.colapm&&selected.colapm.length>0&&!selected.colapm.some(f=>f.n==='Rien');
+  if(hasColMatin&&hasColApm){score+=6;checks.push({ok:true,text:'2 collations prévues (10h et 16h) — idéal pour éviter les fringales et maintenir l\'énergie',pts:'+6'})}
+  else if(hasColMatin||hasColApm){score+=3;checks.push({ok:true,text:'1 collation prévue — bien, le goûter à 16h est le plus important',pts:'+3'})}
+  else{checks.push({ok:false,text:'Pas de collation — une collation à 16h aide à maintenir la glycémie stable',pts:'0/6'})}
+
+  // CHECK 9: Bonnes graisses — 6 points
+  const bonnesGraisses=(selected.dej||[]).concat(selected.diner||[]).some(f=>f.n.includes('olive')||f.n.includes('Colza')||f.n.includes('Amandes')||f.n.includes('Noix'));
+  if(bonnesGraisses){score+=6;checks.push({ok:true,text:'Bonnes graisses détectées (olive, colza, noix) — excellent pour les oméga 3',pts:'+6'})}
+  else{checks.push({ok:false,text:'Pas de source de bonnes graisses identifiée — privilégie huile d\'olive, colza, noix, amandes',pts:'0/6'})}
+
+  // CHECK 10: Pénalités — aliments négatifs
+  const penalties=[];
+  if(selected.diner?.some(f=>f.n.includes('Alcool'))){score-=8;penalties.push('🍷 Alcool au dîner : -8 pts — nuit à la récupération et au sommeil')}
+  if(selected.dej?.some(f=>f.n.includes('Fast-food'))){score-=6;penalties.push('🍔 Fast-food au déjeuner : -6 pts — pauvre en nutriments, riche en mauvaises graisses')}
+  if(selected.dej?.some(f=>f.n.includes('Soda'))||selected.diner?.some(f=>f.n.includes('Soda'))){score-=5;penalties.push('🥤 Soda : -5 pts — sucre vide, aucun intérêt nutritionnel')}
+  if(selected.pdj?.some(f=>f.n.includes('Viennoiserie'))){score-=3;penalties.push('🥐 Viennoiseries : -3 pts — graisses saturées et sucres rapides')}
+  if(selected.pdj?.some(f=>f.n.includes('Céréales sucrées'))){score-=3;penalties.push('🥣 Céréales sucrées : -3 pts — index glycémique élevé (IG 80+), préfère les flocons d\'avoine (IG 49)')}
+  if(counts.rien>0){score-=10;penalties.push('⛔ Repas sauté : -10 pts — sauter un repas provoque des hypoglycémies et de la fatigue')}
+
+  // Clamp score
+  score=Math.max(0,Math.min(100,score));
+
+  const tips=[];
+  if(counts.gluc<3)tips.push('⚡ Augmente tes glucides complexes (riz, pâtes, flocons d\'avoine, pain complet). Un sportif doit couvrir 55% de ses apports en glucides (règle GLP).');
+  if(counts.prot<2)tips.push('💪 Ajoute des protéines à chaque repas principal : 1,2 à 1,8 g/kg/jour pour un coureur. Sources : œufs, poulet, poisson, légumineuses.');
+  if(counts.fruit+counts.legume<4)tips.push('🥦 Vise 5 fruits et légumes par jour : vitamines, fibres, antioxydants contre les radicaux libres produits par l\'effort.');
+  if(!bonnesGraisses)tips.push('🫒 Les lipides doivent représenter 30% de l\'apport. Privilégie olive, colza, noix (oméga 3) et limite les graisses saturées.');
+  if(counts.boisson<2)tips.push('💧 Hydratation : 35 ml × ton poids en kg = besoin quotidien minimum. Une perte de 1% du poids = 10% de capacité en moins.');
+  if(score>=80)tips.push('🏆 Excellent profil nutritionnel de coureur ! Ton alimentation est bien équilibrée selon les principes de la nutrition sportive.');
+
+  const scoreClass=score>=70?'score-good':score>=40?'score-ok':'score-bad';
+  const scoreLabel=score>=70?'Bon profil coureur':score>=40?'À améliorer':'Insuffisant';
+
+  let html=`<div class="food-score">
+    <h3 class="sub-title" style="margin-top:0">Score nutritionnel coureur</h3>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-top:8px">
+      <span style="font-family:'Oswald';font-size:1.8rem;font-weight:700;color:var(--cuivre)">${score}/100</span>
+      <span style="font-size:.85rem;color:var(--text-muted)">${scoreLabel}</span>
+    </div>
+    <div class="score-bar"><div class="score-fill ${scoreClass}" style="width:${score}%"></div></div>
+
+    <h4 style="font-family:'Oswald';font-size:.82rem;color:var(--cuivre);margin:14px 0 8px;text-transform:uppercase;letter-spacing:.5px">Détail du score (10 critères vérifiés)</h4>
+    ${checks.map(c=>`<div class="advice-item ${c.ok?'positive':'warning'}" style="padding:7px 10px;margin-bottom:4px"><span class="ai-icon">${c.ok?'✅':'⚠️'}</span><span style="flex:1">${c.text}</span><span style="font-family:'Oswald';font-size:.75rem;color:${c.ok?'var(--success)':'var(--danger)'};min-width:40px;text-align:right">${c.pts}</span></div>`).join('')}
+
+    ${penalties.length?`<h4 style="font-family:'Oswald';font-size:.82rem;color:var(--danger);margin:14px 0 8px;text-transform:uppercase;letter-spacing:.5px">Pénalités</h4>${penalties.map(p=>`<div class="advice-item danger" style="padding:7px 10px;margin-bottom:4px"><span>${p}</span></div>`).join('')}`:''}
+
+    <div class="sim-factors" style="margin-top:14px">
+      <div class="sim-factor"><div class="sf-val">${counts.gluc||0}</div><div class="sf-lbl">Glucides</div></div>
+      <div class="sim-factor"><div class="sf-val">${counts.prot||0}</div><div class="sf-lbl">Protéines</div></div>
+      <div class="sim-factor"><div class="sf-val">${counts.fruit||0}</div><div class="sf-lbl">Fruits</div></div>
+      <div class="sim-factor"><div class="sf-val">${counts.legume||0}</div><div class="sf-lbl">Légumes</div></div>
+      <div class="sim-factor"><div class="sf-val">${counts.lipid||0}</div><div class="sf-lbl">Lipides</div></div>
+      <div class="sim-factor"><div class="sf-val">${counts.boisson||0}</div><div class="sf-lbl">Hydratation</div></div>
+    </div>
+
+    <div style="margin-top:14px;padding:12px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:6px;font-size:.72rem;color:var(--text-muted)">
+      <strong style="color:var(--cuivre)">Comment ce score est calculé :</strong> 10 critères sont analysés — présence du petit-déjeuner (15 pts), glucides (15), protéines (12), fruits (12), légumes (12), hydratation (8), 3 repas principaux (8), collations (6), bonnes graisses (6), puis pénalités pour alcool, fast-food, sodas, repas sautés. Basé sur les recommandations GLP 4-2-1 de la nutrition sportive.
+    </div>
+
+    ${tips.length?`<div class="food-tips" style="margin-top:14px"><h4 style="font-family:'Oswald';font-size:.82rem;color:var(--cuivre);margin-bottom:8px;text-transform:uppercase;letter-spacing:.5px">Conseils personnalisés</h4>${tips.map(t=>`<div class="food-tip">${t}</div>`).join('')}</div>`:''}
+  </div>`;
+  document.getElementById('dietResult').style.display='block';
+  document.getElementById('dietResult').innerHTML=html;
+  notify('Bilan nutritionnel calculé !');
+}
+
+// PERFORMANCE SIMULATOR
+function runSimulator(){
+  const vma=getVMA();
+  if(!vma||vma<8){notify('Renseigne ta VMA dans Profil !');switchTab('profil');return}
+
+  const age=parseInt(document.getElementById('age').value)||35;
+  const poids=parseFloat(document.getElementById('poids').value)||70;
+  const sexe=document.getElementById('sexe').value||'H';
+  const annees=parseInt(document.getElementById('anneesPratique').value)||2;
+  const fumeur=document.getElementById('fumeur').value;
+  const shoeType=document.getElementById('shoeType').value;
+  const r5=document.getElementById('record5').value;
+  const r10=document.getElementById('record10').value;
+  const rSemi=document.getElementById('recordSemi').value;
+  const cType=document.getElementById('courseType').value;
+  const dist=parseFloat(document.getElementById('courseDistCustom').value||document.getElementById('courseDistPreset').value)||10;
+
+  // Volume hebdo
+  const runSess=parseInt(document.getElementById('runSessions').value)||3;
+  const bikeH=parseFloat(document.getElementById('bikeSessions').value)||0;
+  const renfoH=parseFloat(document.getElementById('renfoSessions').value)||0;
+  // Rough weekly km estimate: runSessions * avg distance (based on experience)
+  const avgRunKm=annees>=5?(runSess<=3?8:runSess<=5?10:12):(runSess<=3?6:runSess<=5?8:10);
+  const weeklyRunKm=runSess*avgRunKm;
+
+  // Record years (ancienneté)
+  const r5Year=document.getElementById('record5Year')?.value||'';
+  const r10Year=document.getElementById('record10Year')?.value||'';
+  const rSemiYear=document.getElementById('recordSemiYear')?.value||'';
+
+  // D+
+  const dplus=parseInt(document.getElementById('courseDplus')?.value)||0;
+
+  // Parse reference time if available — prefer most recent record
+  let refDist=0,refTimeSec=0,refYear='';
+  // Build candidates sorted by recency
+  const candidates=[];
+  if(r10){const p=parseTime(r10);if(p>0)candidates.push({d:10,t:p,y:r10Year})}
+  if(r5){const p=parseTime(r5);if(p>0)candidates.push({d:5,t:p,y:r5Year})}
+  if(rSemi){const p=parseTime(rSemi);if(p>0)candidates.push({d:21.1,t:p,y:rSemiYear})}
+  const rMarathon=document.getElementById('recordMarathon').value;
+  const rMarathonYear=document.getElementById('recordMarathonYear')?.value||'';
+  if(rMarathon){const p=parseTime(rMarathon);if(p>0)candidates.push({d:42.195,t:p,y:rMarathonYear})}
+  const r100=document.getElementById('record100')?.value||'';
+  const r100Year=document.getElementById('record100Year')?.value||'';
+  if(r100){const p=parseTime(r100);if(p>0)candidates.push({d:100,t:p,y:r100Year})}
+  // Sort by most recent year first
+  const yearVal=(y)=>y==='avant 2015'||y==='avant'?2014:y?parseInt(y):0;
+  candidates.sort((a,b)=>yearVal(b.y)-yearVal(a.y));
+  if(candidates.length>0){refDist=candidates[0].d;refTimeSec=candidates[0].t;refYear=candidates[0].y}
+
+  // Distances to simulate
+  const distances=[
+    {d:5,name:'5 km'},
+    {d:10,name:'10 km'},
+    {d:15,name:'15 km'},
+    {d:21.1,name:'Semi-marathon'},
+    {d:42.195,name:'Marathon'},
+    {d:100,name:'100 km'},
+  ];
+
+  // Add target distance if custom
+  if(dist && !distances.some(x=>Math.abs(x.d-dist)<0.5)){
+    distances.push({d:dist,name:`${dist} km (objectif)`});
+    distances.sort((a,b)=>a.d-b.d);
+  }
+
+  // Factors
+  const factors=[];
+
+  // Age factor (peak 25-35, decline ~0.7%/year after 40)
+  let ageFactor=1;
+  if(age>40)ageFactor=1-(age-40)*0.007;
+  else if(age<20)ageFactor=0.95;
+  factors.push({name:'Âge',val:ageFactor,label:age+' ans'});
+
+  // Sex factor (women typically ~10-12% slower)
+  let sexFactor=sexe==='F'?0.89:1;
+  factors.push({name:'Sexe',val:sexFactor,label:sexe==='F'?'Femme':'Homme'});
+
+  // Experience factor
+  let expFactor=1;
+  if(annees>=10)expFactor=1.03;
+  else if(annees>=5)expFactor=1.01;
+  else if(annees<=1)expFactor=0.95;
+  factors.push({name:'Expérience',val:expFactor,label:annees+' ans'});
+
+  // Smoke factor
+  let smokeFactor=1;
+  if(fumeur==='oui')smokeFactor=0.92;
+  else if(fumeur==='ex')smokeFactor=0.97;
+  factors.push({name:'Tabac',val:smokeFactor,label:fumeur==='oui'?'Fumeur':fumeur==='ex'?'Ex-fumeur':'Non'});
+
+  // Shoe factor
+  let shoeFactor=1;
+  if(shoeType==='carbone')shoeFactor=1.025;
+  else if(shoeType==='tempo')shoeFactor=1.01;
+  else if(shoeType==='minimaliste')shoeFactor=0.99;
+  factors.push({name:'Chaussures',val:shoeFactor,label:document.getElementById('shoeType').options[document.getElementById('shoeType').selectedIndex].text});
+
+  // Weight factor based on actual IMC if taille available
+  const taille=parseFloat(document.getElementById('taille').value)||0;
+  let weightFactor=1;
+  let weightLabel=poids+' kg';
+  if(taille>0 && poids>0){
+    const h=taille/100;
+    const imc=poids/(h*h);
+    const imcIdeal=sexe==='F'?20.5:21;
+    weightLabel=poids+' kg (IMC '+Math.round(imc*10)/10+')';
+    if(imc<18.5)weightFactor=0.98; // trop léger, risque fatigue
+    else if(imc<=20.5)weightFactor=1.02; // zone idéale coureur
+    else if(imc<=22)weightFactor=1.0;
+    else if(imc<=25)weightFactor=1-(imc-22)*0.01; // léger malus par point d'IMC
+    else weightFactor=1-(imc-22)*0.015; // malus plus marqué
+  } else {
+    // Fallback sans taille
+    if(poids>90)weightFactor=0.96;
+    else if(poids>80)weightFactor=0.98;
+  }
+  factors.push({name:'Poids',val:weightFactor,label:weightLabel});
+
+  // NEW FACTOR: Weekly volume
+  let volFactor=1;
+  let volLabel=weeklyRunKm+' km/sem ('+runSess+' séances)';
+  if(dist>=42){
+    if(weeklyRunKm>=60)volFactor=1.02;
+    else if(weeklyRunKm>=40)volFactor=1.0;
+    else if(weeklyRunKm>=25)volFactor=0.97;
+    else volFactor=0.93;
+  } else if(dist>=21){
+    if(weeklyRunKm>=40)volFactor=1.02;
+    else if(weeklyRunKm>=25)volFactor=1.0;
+    else if(weeklyRunKm>=15)volFactor=0.97;
+    else volFactor=0.94;
+  } else {
+    if(weeklyRunKm>=30)volFactor=1.01;
+    else if(weeklyRunKm>=15)volFactor=1.0;
+    else volFactor=0.97;
+  }
+  // Cross-training bonus (vélo + renfo)
+  if(bikeH>=2)volFactor+=0.01;
+  if(renfoH>=2)volFactor+=0.01;
+  if(bikeH>=1||renfoH>=1)volLabel+=` + ${bikeH}h vélo, ${renfoH}h renfo`;
+  factors.push({name:'Volume hebdo',val:volFactor,label:volLabel});
+
+  // NEW FACTOR: Record freshness (ancienneté du record de référence)
+  let freshFactor=1;
+  let freshLabel='Pas de record';
+  if(refYear){
+    const recAge=2026-(yearVal(refYear));
+    freshLabel=`Record ${refDist}km de ${refYear} (${recAge} an${recAge>1?'s':''})`;
+    if(recAge<=1)freshFactor=1.0; // très récent = fiable
+    else if(recAge<=2)freshFactor=0.99; // correct
+    else if(recAge<=4)freshFactor=0.97; // commence à dater
+    else if(recAge<=6)freshFactor=0.94; // ancien
+    else freshFactor=0.90; // très ancien = peu fiable
+  }
+  if(refYear)factors.push({name:'Fraîcheur record',val:freshFactor,label:freshLabel});
+
+  const globalFactor=factors.reduce((p,f)=>p*f.val,1);
+
+  // Prediction methods
+  const predictions=distances.map(dd=>{
+    let timeSec;
+
+    if(refDist>0 && refTimeSec>0){
+      // Riegel formula: T2 = T1 × (D2/D1)^1.06
+      timeSec=refTimeSec*Math.pow(dd.d/refDist,1.06);
+    } else {
+      // VMA-based: use % VMA sustainable for distance
+      // Mercier table: 5km=93%, 10km=88%, 15km=85%, semi=83%, marathon=78%
+      const pctVma=dd.d<=5?0.93:dd.d<=10?0.88:dd.d<=15?0.85:dd.d<=21.5?0.83:dd.d<=30?0.80:dd.d<=42.5?0.78:dd.d<=60?0.73:0.68;
+      const speed=vma*pctVma; // km/h
+      timeSec=(dd.d/speed)*3600;
+    }
+
+    // Apply profile factors
+    // For sex factor, only apply if we used VMA-based (VMA already accounts for sex if tested)
+    let adjustedTime=timeSec;
+    if(refDist>0){
+      // If using records, don't apply sex/age again (already baked in record)
+      adjustedTime=timeSec * (1/shoeFactor); // shoe can still help
+    } else {
+      adjustedTime=timeSec / globalFactor;
+    }
+
+    // Trail and D+ adjustment — ONLY apply to the actual target distance
+    // Standard distances (5km, 10km, semi, marathon) are reference times on road
+    const isTargetDist=(dd.d===dist)||(dd.name&&dd.name.includes('objectif'));
+    if(isTargetDist && cType?.includes('trail')){
+      if(dplus>0){
+        // ITRA km-effort formula: each 100m D+ ≈ 1 extra km of effort
+        const kmEffort=dd.d+(dplus/100);
+        const trailRatio=kmEffort/dd.d;
+        adjustedTime*=trailRatio;
+      } else {
+        adjustedTime*=dd.d<=21?1.15:dd.d<=42?1.20:1.30; // default trail factor
+      }
+    } else if(isTargetDist && dplus>0){
+      // Route with D+ (hilly road race)
+      adjustedTime*=1+(dplus/10000);
+    }
+
+    return{
+      dist:dd.d,
+      name:dd.name,
+      time:Math.round(adjustedTime),
+      pace:adjustedTime/dd.d,
+    };
+  });
+
+  // Find best for bar chart
+  const fastest5kPace=predictions.find(p=>p.dist===5)?.pace||300;
+
+  let html=`<div class="sim-result">
+    <h3 class="sub-title" style="margin-top:0">Performances estimées</h3>
+    <p style="font-size:.75rem;color:var(--text-muted);margin-bottom:14px">${refDist>0?'Basé sur ton record '+refDist+'km + modèle de Riegel':'Basé sur ta VMA ('+vma+' km/h) + table de Mercier'} — ajusté selon ton profil</p>
+    ${predictions.map(p=>{
+      const h=Math.floor(p.time/3600);const m=Math.floor((p.time%3600)/60);const s=Math.round(p.time%60);
+      const timeStr=h>0?`${h}h${m.toString().padStart(2,'0')}'${s.toString().padStart(2,'0')}"`:
+                    `${m}'${s.toString().padStart(2,'0')}"`;
+      const pm=Math.floor(p.pace/60);const ps=Math.round(p.pace%60);
+      const paceStr=`${pm}'${ps.toString().padStart(2,'0')}"/km`;
+      const barW=Math.max(10,Math.min(100,(fastest5kPace/p.pace)*100));
+      const isTarget=p.name.includes('objectif');
+      return`<div class="sim-row" ${isTarget?'style="background:var(--cuivre-glow);border-radius:5px;padding:10px 8px"':''}>
+        <div class="sim-dist">${isTarget?'🎯 ':''} ${p.name}</div>
+        <div>
+          <div class="sim-time">${timeStr}</div>
+          <div class="sim-bar"><div class="sim-bar-fill" style="width:${barW}%"></div></div>
+        </div>
+        <div class="sim-pace">${paceStr}</div>
+      </div>`;
+    }).join('')}
+
+    <h3 class="sub-title" style="margin-top:20px">Facteurs appliqués</h3>
+    <div class="sim-factors">
+      ${factors.map(f=>{
+        const pct=Math.round((f.val-1)*100);
+        const cls=pct>0?'positive':pct<0?'negative':'';
+        return`<div class="sim-factor ${cls}"><div class="sf-val">${pct>=0?'+':''}${pct}%</div><div class="sf-lbl">${f.name}: ${f.label}</div></div>`;
+      }).join('')}
+    </div>
+
+    <h3 class="sub-title" style="margin-top:20px">📐 Pourquoi ces projections ?</h3>
+    <div style="padding:14px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:8px;font-size:.78rem;line-height:1.6;color:var(--text-muted)">
+      <p>${refDist>0?`<strong style="color:var(--cuivre)">Méthode Riegel :</strong> à partir de ton record sur ${refDist} km, on extrapole les temps sur d\'autres distances avec la formule T₂ = T₁ × (D₂/D₁)^1.06. Plus la distance augmente, plus le ralentissement est marqué — c\'est l\'indice d\'endurance. Un coureur rapide sur 5 km ne sera pas forcément aussi performant sur marathon si son endurance est limitée.`:`<strong style="color:var(--cuivre)">Table de Mercier :</strong> ta VMA de ${vma} km/h donne une vitesse théorique pour chaque distance. Un coureur tient en moyenne 93% de sa VMA sur 5 km, 88% sur 10 km, 83% sur semi, 78% sur marathon. Ces pourcentages varient selon l\'indice d\'endurance individuel (±4%).`}</p>
+      <p style="margin-top:8px"><strong style="color:var(--cuivre)">Facteurs de correction :</strong> le temps brut est ajusté selon <strong>8 paramètres</strong> de ton profil. L\'âge impacte la récupération et la VO2max (-3 à -8% après 45 ans). Le sexe influence les allures (écart moyen de 10-12% H/F). L\'expérience améliore l\'économie de course (+1 à 3%). Le tabac réduit la VO2max (-8%). Les chaussures carbone apportent un gain mesurable (+2-4%). L\'IMC affecte le coût énergétique. Le volume hebdomadaire (km/sem + cross-training) reflète ta capacité d\'endurance. La fraîcheur du record : un record récent est bien plus fiable qu\'un ancien.</p>
+      ${dplus>0?'<p style="margin-top:8px"><strong style="color:var(--cuivre)">Dénivelé ('+dplus+'m D+) :</strong> en trail, chaque 100m de D+ équivaut à environ 1 km d\'effort supplémentaire (formule ITRA km-effort). Le temps est majoré en conséquence.</p>':''}
+      ${cType?.includes('trail')?'<p style="margin-top:8px"><strong style="color:var(--cuivre)">Facteur trail :</strong> les temps sont majorés pour tenir compte du dénivelé, du terrain technique et des relances. Source : Uptrack, Borner, RunMotion.</p>':''}
+    </div>
+
+    <h3 class="sub-title" style="margin-top:20px">📊 Tableau FCM / VMA / Sensations</h3>
+    <p style="font-size:.75rem;color:var(--text-muted);margin-bottom:10px">Source : Running Addict / Garmin Full Potential — pour situer tes allures</p>
+    <div style="overflow-x:auto">
+      <table class="nutri-table" style="font-size:.72rem">
+        <tr><th>Effort /10</th><th>% FCM</th><th>% VMA</th><th>Sensation</th><th>Parole</th><th>Usage</th></tr>
+        <tr><td>4-5</td><td>60-70%</td><td>55-65%</td><td>Facile, détendu</td><td>Conversation normale</td><td>Footing récup / EF</td></tr>
+        <tr><td>5-6</td><td>70-75%</td><td>65-70%</td><td>Confortable, respiration accélérée</td><td>Phrases courtes</td><td>Endurance fondamentale</td></tr>
+        <tr><td>6.5-7</td><td>75-80%</td><td>70-75%</td><td>Modéré, léger essoufflement</td><td>Quelques mots</td><td>Endurance active / Allure marathon</td></tr>
+        <tr><td>7.5-8</td><td>80-85%</td><td>75-85%</td><td>Soutenu, essoufflement net</td><td>4-5 mots max</td><td>Seuil / Allure semi</td></tr>
+        <tr><td>8.5-9</td><td>85-92%</td><td>85-95%</td><td>Dur, respiration forte</td><td>1-2 mots</td><td>Allure 10km / VMA longue</td></tr>
+        <tr><td>9-9.5</td><td>92-97%</td><td>95-100%</td><td>Très dur, max contrôlé</td><td>Impossible</td><td>VMA / Fractionné court</td></tr>
+        <tr><td>10</td><td>97-100%</td><td>100-110%</td><td>Sprint maximal</td><td>—</td><td>Sprint / Côtes courtes</td></tr>
+      </table>
+    </div>
+    <p style="font-size:.68rem;color:var(--text-muted);margin-top:6px;font-style:italic">Rappel : 80% du volume d'entraînement devrait être en zone 4-6 (endurance fondamentale), 20% en zone 7+ (intensité). C'est le principe du 80/20 polarisé.</p>
+
+    <p style="font-size:.7rem;color:var(--text-muted);margin-top:12px;font-style:italic">⚠️ Ces estimations sont indicatives. Les conditions de course (météo, dénivelé, état de forme du jour) influencent fortement le résultat réel.</p>
+  </div>`;
+
+  document.getElementById('simResult').style.display='block';
+  document.getElementById('simResult').innerHTML=html;
+  notify('Simulation calculée !');
+}
+
+function parseTime(str){
+  if(!str)return 0;
+  str=str.trim();
+  // Handle formats: 22:30, 1:45:00, 47:00, 3h30
+  if(str.includes('h')){
+    const p=str.split('h');
+    const h=parseInt(p[0])||0;
+    const m=parseInt(p[1])||0;
+    return h*3600+m*60;
+  }
+  const parts=str.split(':');
+  if(parts.length===3)return(parseInt(parts[0])||0)*3600+(parseInt(parts[1])||0)*60+(parseInt(parts[2])||0);
+  if(parts.length===2){
+    const a=parseInt(parts[0])||0,b=parseInt(parts[1])||0;
+    if(a>59)return a*60+b; // already minutes:seconds for short times
+    return a*60+b;
+  }
+  return 0;
+}
+
+// ==================== CALENDRIER ====================
+let calYear,calMonth,calSelectedDate=null;
+const MOIS_FR=['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'];
+const JOURS_FR=['Dimanche','Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi'];
+
+function initCalendar(){
+  const now=new Date();
+  calYear=now.getFullYear();
+  calMonth=now.getMonth();
+  renderCalendar();
+}
+
+function calNav(dir){
+  calMonth+=dir;
+  if(calMonth>11){calMonth=0;calYear++}
+  if(calMonth<0){calMonth=11;calYear--}
+  renderCalendar();
+}
+
+function renderCalendar(){
+  document.getElementById('calMonthYear').textContent=MOIS_FR[calMonth]+' '+calYear;
+  const grid=document.getElementById('calGrid');
+  grid.innerHTML='';
+  const today=new Date();today.setHours(0,0,0,0);
+  const firstDay=new Date(calYear,calMonth,1);
+  let startDay=firstDay.getDay();if(startDay===0)startDay=7; // Monday=1
+  const daysInMonth=new Date(calYear,calMonth+1,0).getDate();
+  const daysInPrevMonth=new Date(calYear,calMonth,0).getDate();
+
+  // Previous month days
+  for(let i=startDay-1;i>0;i--){
+    const d=document.createElement('div');
+    d.className='cal-day other-month';
+    d.textContent=daysInPrevMonth-i+1;
+    grid.appendChild(d);
+  }
+
+  // Current month days
+  for(let day=1;day<=daysInMonth;day++){
+    const d=document.createElement('div');
+    const thisDate=new Date(calYear,calMonth,day);
+    thisDate.setHours(0,0,0,0);
+    d.className='cal-day';
+    d.textContent=day;
+
+    if(thisDate<today){
+      d.classList.add('past');
+    } else {
+      if(thisDate.getTime()===today.getTime())d.classList.add('today');
+      if(calSelectedDate&&thisDate.getTime()===calSelectedDate.getTime())d.classList.add('selected');
+      d.onclick=()=>selectCalDate(calYear,calMonth,day);
+    }
+    grid.appendChild(d);
+  }
+
+  // Next month days to fill the grid
+  const totalCells=grid.children.length;
+  const remaining=totalCells%7===0?0:7-(totalCells%7);
+  for(let i=1;i<=remaining;i++){
+    const d=document.createElement('div');
+    d.className='cal-day other-month';
+    d.textContent=i;
+    grid.appendChild(d);
+  }
+}
+
+function selectCalDate(y,m,day){
+  calSelectedDate=new Date(y,m,day);
+  // Store as ISO for compatibility with the rest of the code
+  const iso=y+'-'+String(m+1).padStart(2,'0')+'-'+String(day).padStart(2,'0');
+  document.getElementById('courseDate').value=iso;
+  renderCalendar();
+  updateDateInfo();
+}
+
+function updateDateInfo(){
+  const v=document.getElementById('courseDate').value;
+  if(!v){document.getElementById('dateInfo').innerHTML='';return}
+  const d=new Date(v);
+  const now=new Date();
+  const diff=Math.ceil((d-now)/(1000*60*60*24*7));
+  const jourSem=JOURS_FR[d.getDay()];
+  const mois=MOIS_FR[d.getMonth()];
+  document.getElementById('dateInfo').innerHTML=`📅 ${jourSem} ${d.getDate()} ${mois} ${d.getFullYear()} — <strong>${diff>0?diff:0} semaine${diff>1?'s':''}</strong> de préparation`;
+}
+
+// ==================== MÉTÉO ====================
+async function fetchMeteo(){
+  const ville=document.getElementById('meteoVille').value.trim();
+  if(!ville){notify('Indique ta ville !');return}
+  const el=document.getElementById('meteoResult');
+  el.innerHTML='<p style="color:var(--text-muted);font-size:.82rem">🌡️ Chargement de la météo...</p>';
+
+  // OpenWeatherMap free API key (create yours at openweathermap.org)
+  // LOÏC : remplace cette clé par la tienne (gratuite) sur openweathermap.org/appid
+  const apiKey='REMPLACE_PAR_TA_CLE_OPENWEATHERMAP';
+
+  try{
+    const resp=await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(ville)}&appid=${apiKey}&units=metric&lang=fr`);
+    if(!resp.ok)throw new Error('Ville non trouvée');
+    const data=await resp.json();
+    displayMeteo(data);
+  }catch(e){
+    // Fallback: manual mode
+    el.innerHTML=`
+      <div style="padding:14px;background:rgba(255,255,255,.04);border:1px solid var(--border-subtle);border-radius:8px;margin-top:12px">
+        <p style="font-size:.82rem;color:var(--cuivre);margin-bottom:10px">⚠️ Impossible de récupérer la météo automatiquement. Saisis manuellement :</p>
+        <div class="form-row">
+          <div class="form-group"><label>Température (°C)</label><input type="number" id="meteoManualTemp" placeholder="ex: 28" min="-20" max="50"></div>
+          <div class="form-group"><label>Humidité (%)</label><input type="number" id="meteoManualHum" placeholder="ex: 65" min="0" max="100"></div>
+        </div>
+        <button class="btn btn-secondary" onclick="displayMeteoManual()" style="margin-top:8px">Voir les recommandations</button>
+      </div>
+      <p style="font-size:.7rem;color:var(--text-muted);margin-top:8px">💡 Pour la météo automatique, crée une clé gratuite sur <a href="https://openweathermap.org/appid" target="_blank" style="color:var(--cuivre)">openweathermap.org</a> et remplace-la dans le code.</p>
+    `;
+  }
+}
+
+function displayMeteoManual(){
+  const temp=parseFloat(document.getElementById('meteoManualTemp').value);
+  const hum=parseFloat(document.getElementById('meteoManualHum').value)||50;
+  if(isNaN(temp)){notify('Indique la température !');return}
+  displayMeteoData(temp,hum,'Saisie manuelle','--');
+}
+
+function displayMeteo(data){
+  const temp=Math.round(data.main.temp);
+  const hum=data.main.humidity;
+  const desc=data.weather[0].description;
+  const wind=Math.round(data.wind.speed*3.6);
+  displayMeteoData(temp,hum,desc,wind+'km/h');
+}
+
+function displayMeteoData(temp,hum,desc,wind){
+  let level,cls,alertText,tips=[];
+  if(temp>35){level='DANGER';cls='extreme';alertText='🔴 ALERTE CANICULE — Reporter ta séance ou courir avant 8h / après 20h uniquement. Risque vital.';tips=['Hydrate-toi abondamment même sans courir','Mouille ta casquette et ton t-shirt','Si tu cours malgré tout : divise ta distance par 2, ralentis de 40+ sec/km','Emporte ton téléphone — préviens quelqu\'un de ton parcours']}
+  else if(temp>30){level='RISQUE ÉLEVÉ';cls='danger';alertText='🟠 Chaleur forte — Ralentis de +20 à 40 sec/km. Hydratation 1L+/h. Privilégie l\'ombre.';tips=['Couvre ta tête (casquette légère, claire)','Asperge-toi d\'eau aux points d\'eau','Réduis l\'intensité : pas de fractionné, pas de seuil','Bois 500ml 30min avant de partir']}
+  else if(temp>25){level='VIGILANCE';cls='caution';alertText='🟡 Chaleur modérée — Ralentis de +10 à 20 sec/km. Bois 600-800ml/h.';tips=['Porte des vêtements clairs et respirants','Privilégie les parcours ombragés','Emporte de l\'eau (ceinture ou sac)','Écoute ton corps : vertiges ou nausées = stop immédiat']}
+  else if(temp>15){level='CONDITIONS IDÉALES';cls='safe';alertText='🟢 Bonnes conditions pour courir. Allures normales.';tips=['Pense quand même à t\'hydrater régulièrement','Profite de ces conditions pour tes séances clés !']}
+  else if(temp>5){level='FRAIS';cls='safe';alertText='🟢 Temps frais — échauffement prolongé recommandé.';tips=['Échauffement 15-20 min au lieu de 10','Couvre tes extrémités (gants légers, bandeau)','Respire par le nez pour réchauffer l\'air']}
+  else{level='FROID';cls='caution';alertText='🟡 Temps froid — protège-toi et adapte.';tips=['Superpose les couches (respirante + isolante + coupe-vent)','Gants, bonnet, cache-cou obligatoires','Échauffement très progressif, 20 min minimum','Réduis la durée plutôt que l\'intensité']}
+
+  // Humidity factor
+  if(hum>80&&temp>25)tips.push('💦 Humidité élevée ('+hum+'%) — la transpiration s\'évapore mal. Redouble de prudence.');
+
+  document.getElementById('meteoResult').innerHTML=`
+    <div class="weather-box ${cls}" style="margin-top:14px">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <div><span class="weather-temp" style="color:${temp>30?'var(--danger)':temp>25?'#FF9800':'var(--blanc-casse)'}">${temp}°C</span><div class="weather-detail">${desc} · Humidité ${hum}% · Vent ${wind}</div></div>
+        <div style="text-align:right"><span style="font-family:'Oswald';font-size:.85rem;color:${cls==='extreme'||cls==='danger'?'var(--danger)':cls==='caution'?'#FF9800':'var(--success)'};text-transform:uppercase;letter-spacing:1px">${level}</span></div>
+      </div>
+      <div class="weather-alert" style="background:rgba(255,255,255,.04)">${alertText}</div>
+      <div class="weather-tips">${tips.map(t=>`<div class="weather-tip">→ ${t}</div>`).join('')}</div>
+    </div>`;
+}
+
+// ==================== MENTAL ====================
+const mentalScores={};
+function selectMental(btn,val){
+  const q=btn.parentElement.dataset.q;
+  mentalScores[q]=val;
+  btn.parentElement.querySelectorAll('button').forEach(b=>b.classList.remove('selected'));
+  btn.classList.add('selected');
+
+  // Auto-calculate when all 5 answered
+  if(Object.keys(mentalScores).length>=5){
+    const total=Object.values(mentalScores).reduce((a,b)=>a+b,0);
+    const pct=Math.round((total/25)*100);
+    let label,color;
+    if(pct>=80){label='Mental solide';color='var(--success)'}
+    else if(pct>=60){label='Mental correct';color='var(--cuivre)'}
+    else if(pct>=40){label='Mental à travailler';color='#FF9800'}
+    else{label='Mental fragile — utilise la boîte à outils ci-dessous';color='var(--danger)'}
+
+    document.getElementById('mentalScore').style.display='block';
+    document.getElementById('mentalScore').innerHTML=`
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <span style="font-family:'Oswald';font-size:1.2rem;font-weight:700;color:${color}">Score mental : ${pct}/100</span>
+        <span style="font-size:.8rem;color:var(--text-muted)">${label}</span>
+      </div>
+      <div class="score-bar" style="margin-top:8px"><div class="score-fill ${pct>=70?'score-good':pct>=45?'score-ok':'score-bad'}" style="width:${pct}%"></div></div>
+      <p style="font-size:.73rem;color:var(--text-muted);margin-top:6px">Ce score est intégré à ton indice de faisabilité dans "Mon plan".</p>
+    `;
+  }
+}
+
+function getMentalScore(){
+  if(Object.keys(mentalScores).length<5)return-1;
+  return Object.values(mentalScores).reduce((a,b)=>a+b,0);
+}
+
+// ==================== SOMMEIL ====================
+function analyzeSleep(){
+  let bed=parseFloat(document.getElementById('sleepBed').value);
+  let wake=parseFloat(document.getElementById('sleepWake').value);
+  const quality=parseInt(document.getElementById('sleepQuality').value);
+  const nap=parseInt(document.getElementById('sleepNap').value);
+  const lateTrain=document.getElementById('sleepLateTraining').value;
+
+  // Calculate duration
+  if(bed>12)bed=bed-24; // normalize: 22 -> -2, 23 -> -1, 24 -> 0
+  let duration=wake-bed;
+  if(duration<0)duration+=24;
+
+  let score=0;const items=[];
+
+  // Duration check
+  if(duration>=8){score+=35;items.push({ok:true,t:`${duration}h de sommeil — excellent pour un coureur (7h30-9h recommandées)`})}
+  else if(duration>=7){score+=25;items.push({ok:true,t:`${duration}h de sommeil — correct. Vise 7h30-8h30 pour une récupération optimale.`})}
+  else if(duration>=6){score+=12;items.push({ok:false,t:`${duration}h de sommeil — insuffisant pour un sportif. Risque de surentraînement et de blessure.`})}
+  else{score+=5;items.push({ok:false,t:`${duration}h de sommeil — dette de sommeil sévère. Chaque heure en moins = -10% de performance estimée.`})}
+
+  // Quality check
+  if(quality>=4){score+=25;items.push({ok:true,t:'Qualité de sommeil bonne à excellente — tu récupères bien.'})}
+  else if(quality>=3){score+=15;items.push({ok:true,t:'Qualité correcte. Assure-toi que ta chambre est fraîche (18-19°C), sombre et silencieuse.'})}
+  else{score+=5;items.push({ok:false,t:'Qualité de sommeil insuffisante. Problèmes d\'endormissement, réveils nocturnes ? Consulte si ça persiste.'})}
+
+  // Regularity (bed hour)
+  if(bed>=-3&&bed<=0){score+=15;items.push({ok:true,t:'Coucher avant minuit — bon rythme. Les heures avant minuit comptent double pour la récupération.'})}
+  else if(bed>0){score+=5;items.push({ok:false,t:'Coucher après minuit — tu rates les phases de sommeil profond les plus réparatrices.'})}
+  else{score+=15;items.push({ok:true,t:'Coucher tôt — excellent pour la récupération musculaire.'})}
+
+  // Naps
+  if(nap>=1){score+=10;items.push({ok:true,t:'Siestes régulières — la sieste de 20-30min après le déjeuner est un boost de récupération prouvé.'})}
+  else{score+=5;items.push({ok:true,t:'Pas de sieste — ce n\'est pas indispensable si tes nuits sont suffisantes.'})}
+
+  // Late training
+  if(lateTrain==='oui'){score-=10;items.push({ok:false,t:'Entraînement après 20h — le cortisol met 2-3h à redescendre. Risque de perturbation de l\'endormissement.'})}
+  else{score+=15;items.push({ok:true,t:'Pas d\'entraînement intense tard le soir — bon pour la qualité de sommeil.'})}
+
+  score=Math.max(0,Math.min(100,score));
+  const cls=score>=70?'score-good':score>=45?'score-ok':'score-bad';
+  const label=score>=70?'Bon profil récupération':score>=45?'À améliorer':'Insuffisant — risque de surentraînement';
+
+  document.getElementById('sleepResult').style.display='block';
+  document.getElementById('sleepResult').innerHTML=`
+    <div class="food-score">
+      <h3 class="sub-title" style="margin-top:0">Score sommeil & récupération</h3>
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-top:8px">
+        <span style="font-family:'Oswald';font-size:1.6rem;font-weight:700;color:var(--cuivre)">${score}/100</span>
+        <span style="font-size:.82rem;color:var(--text-muted)">${label}</span>
+      </div>
+      <div class="score-bar"><div class="score-fill ${cls}" style="width:${score}%"></div></div>
+      ${items.map(it=>`<div class="advice-item ${it.ok?'positive':'warning'}" style="padding:7px 10px;margin-bottom:4px"><span class="ai-icon">${it.ok?'✅':'⚠️'}</span><span>${it.t}</span></div>`).join('')}
+      <p style="font-size:.7rem;color:var(--text-muted);margin-top:10px;font-style:italic">Ce score est intégré à ton indice de faisabilité dans "Mon plan".</p>
+    </div>`;
+}
+
+// ==================== PRÉVENTION ====================
+const bodyZonesData=[
+  {id:'achille',icon:'🦶',name:'Tendon d\'Achille',exercises:[
+    {name:'Excentriques du mollet (protocole Stanish)',desc:'Debout sur une marche, montée sur les 2 pieds, descente lente (5 sec) sur le pied blessé, talon sous le niveau de la marche. 3×15 reps, 2×/jour.',sets:'3×15 · 2 fois/jour'},
+    {name:'Étirement mollet genou tendu',desc:'Face au mur, jambe arrière tendue, talon au sol. Maintenir 30 sec. Alterner.',sets:'3×30 sec par côté'}
+  ]},
+  {id:'genou-ext',icon:'🦵',name:'Genou externe (essuie-glace)',exercises:[
+    {name:'Renforcement du moyen fessier',desc:'Allongé sur le côté, lever la jambe tendue à 30°, maintenir 2 sec, redescendre lentement.',sets:'3×15 par côté'},
+    {name:'Étirement du TFL (tenseur du fascia lata)',desc:'Debout, croiser la jambe douloureuse derrière l\'autre, pencher le buste du côté opposé.',sets:'3×30 sec'}
+  ]},
+  {id:'genou-ant',icon:'🦵',name:'Genou antérieur (rotule)',exercises:[
+    {name:'Chaise murale (wall sit)',desc:'Dos au mur, cuisses parallèles au sol, genoux à 90°. Maintenir le plus longtemps possible.',sets:'3×30-60 sec'},
+    {name:'Renforcement du vaste interne',desc:'Assis, jambe tendue, serrer un coussin entre les genoux, contracter le quadriceps 5 sec.',sets:'3×12'}
+  ]},
+  {id:'cheville',icon:'🦶',name:'Cheville / entorse',exercises:[
+    {name:'Proprioception unipodal',desc:'Debout sur un pied, yeux ouverts puis fermés. Sur coussin instable pour progresser.',sets:'3×30 sec par pied'},
+    {name:'Alphabet du pied',desc:'Assis, pied en l\'air, dessiner les lettres de l\'alphabet avec la pointe du pied.',sets:'1 alphabet complet par pied'}
+  ]},
+  {id:'fascia',icon:'🦶',name:'Voûte plantaire (fasciite)',exercises:[
+    {name:'Roulement balle de tennis',desc:'Debout ou assis, rouler une balle de tennis sous la voûte plantaire, appuyer sur les points douloureux.',sets:'3-5 min par pied'},
+    {name:'Étirement du fascia',desc:'Assis, tirer les orteils vers le tibia, maintenir. Sensation d\'étirement sous le pied.',sets:'3×30 sec'}
+  ]},
+  {id:'hanche',icon:'🏃',name:'Hanche / psoas',exercises:[
+    {name:'Étirement du psoas (fente basse)',desc:'Genou arrière au sol, avancer le bassin vers l\'avant, dos droit. Étirement devant la hanche arrière.',sets:'3×30 sec par côté'},
+    {name:'Renforcement fessiers (pont)',desc:'Allongé sur le dos, pieds au sol, monter le bassin en serrant les fessiers, maintenir 3 sec.',sets:'3×15'}
+  ]},
+  {id:'mollet',icon:'🦵',name:'Mollet / périostite',exercises:[
+    {name:'Étirement mollet genou fléchi (soléaire)',desc:'Même position que mollet genou tendu, mais fléchir le genou arrière. Étirement plus profond.',sets:'3×30 sec par côté'},
+    {name:'Renforcement sur pointes',desc:'Debout, montée sur les pointes des pieds (les 2), maintenir 2 sec, descendre lentement.',sets:'3×20'}
+  ]},
+  {id:'dos',icon:'🏋️',name:'Dos / lombaires',exercises:[
+    {name:'Gainage ventral (planche)',desc:'Sur les avant-bras et les pointes de pieds, corps aligné. Ne pas creuser le dos.',sets:'3×30-60 sec'},
+    {name:'Superman',desc:'Allongé sur le ventre, décoller bras et jambes simultanément, maintenir 3 sec.',sets:'3×10'}
+  ]},
+];
+
+function buildBodyZones(){
+  const el=document.getElementById('bodyZones');
+  el.innerHTML=bodyZonesData.map(z=>`<div class="body-zone" data-zone="${z.id}" onclick="toggleZone(this)"><span class="bz-icon">${z.icon}</span>${z.name}</div>`).join('');
+}
+
+function toggleZone(el){el.classList.toggle('selected')}
+
+function analyzeBody(){
+  const selected=document.querySelectorAll('.body-zone.selected');
+  if(selected.length===0){notify('Sélectionne au moins une zone sensible !');return}
+
+  let html='<h3 class="sub-title" style="margin-top:0">Tes exercices prioritaires</h3>';
+  html+='<p style="font-size:.78rem;color:var(--text-muted);margin-bottom:14px">Fais ces exercices 3 à 4 fois par semaine, idéalement après un footing léger ou le soir. Stopper 5 jours avant une course.</p>';
+
+  selected.forEach(el=>{
+    const zoneId=el.dataset.zone;
+    const zone=bodyZonesData.find(z=>z.id===zoneId);
+    if(!zone)return;
+    html+=`<h4 style="font-family:'Oswald';font-size:.85rem;color:var(--cuivre);margin:14px 0 8px;text-transform:uppercase">${zone.icon} ${zone.name}</h4>`;
+    zone.exercises.forEach(ex=>{
+      html+=`<div class="exercise-card"><h4>${ex.name}</h4><p>${ex.desc}</p><div class="ex-sets">📋 ${ex.sets}</div></div>`;
+    });
+  });
+
+  document.getElementById('bodyResult').style.display='block';
+  document.getElementById('bodyResult').innerHTML=html;
+}
+
+// ==================== HIDE NEW TABS IN PRINT ====================
+
+document.addEventListener('DOMContentLoaded',()=>{
+  // Calendar handles date min via past-day blocking
+  document.getElementById('refDistance').addEventListener('change',estimateVMA);
+  renderGlossary();buildDispoGrid();buildFoodSelectors();checkPremiumOnLoad();buildBodyZones();initCalendar();
+});
+</script>
+</body>
+</html>
