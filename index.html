@@ -2130,7 +2130,7 @@ async function fetchMeteo(){
 
   // OpenWeatherMap free API key (create yours at openweathermap.org)
   // LOÏC : remplace cette clé par la tienne (gratuite) sur openweathermap.org/appid
-  const apiKey='REMPLACE_PAR_TA_CLE_OPENWEATHERMAP';
+  const apiKey='f119073731e3eb203a9d142f31a83401';
 
   try{
     const resp=await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(ville)}&appid=${apiKey}&units=metric&lang=fr`);
